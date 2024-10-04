@@ -1,0 +1,17 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: CustomAppCrashRate
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/customappcrashrate
+  labels:
+    testing.upbound.io/example-name: CUSTOM_APPLICATION-1234567890000000
+  name: custom-application-1234567890000000
+spec:
+  forProvider:
+    crashRateIncrease:
+    - crashRateIncreaseFixed:
+      - absoluteCrashRate: 25
+        concurrentUsers: 200
+      detectionMode: fixed
+      enabled: true
+    scope: CUSTOM_APPLICATION-1234567890000000

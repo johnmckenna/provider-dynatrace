@@ -1,0 +1,16 @@
+apiVersion: dashboards.dynatrace.crossplane.io/v1alpha1
+kind: DashboardsAllowlist
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dashboards/v1alpha1/dashboardsallowlist
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    allowlist:
+    - urlpattern:
+      - rule: equals
+        template: https://www.terraform.io/
+      - rule: startsWith
+        template: https://www.google.com/

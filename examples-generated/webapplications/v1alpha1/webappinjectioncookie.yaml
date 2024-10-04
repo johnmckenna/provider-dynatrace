@@ -1,0 +1,13 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebAppInjectionCookie
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webappinjectioncookie
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    applicationId: APPLICATION-1234567890000000
+    sameSiteCookieAttribute: STRICT
+    useSecureCookieAttribute: true

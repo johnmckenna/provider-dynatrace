@@ -1,0 +1,12 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: RumAdvancedCorrelation
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/rumadvancedcorrelation
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    matcher: STARTS_WITH
+    pattern: Server-Timing-Terraform-2

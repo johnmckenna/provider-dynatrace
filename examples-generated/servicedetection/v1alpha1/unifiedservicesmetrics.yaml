@@ -1,0 +1,12 @@
+apiVersion: servicedetection.dynatrace.crossplane.io/v1alpha1
+kind: UnifiedServicesMetrics
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicedetection/v1alpha1/unifiedservicesmetrics
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enableEndpointMetrics: true
+    serviceId: environment

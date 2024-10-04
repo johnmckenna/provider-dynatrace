@@ -1,0 +1,25 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: CustomAppAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/customappanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    errorRateIncrease:
+    - detectionMode: fixed
+      enabled: true
+      errorRateIncreaseFixed:
+      - sensitivity: low
+        thresholdAbsolute: 5
+    scope: CUSTOM_APPLICATION-1234567890000000
+    slowUserActions:
+    - enabled: false
+    unexpectedHighLoad:
+    - enabled: true
+      thresholdPercentage: 300
+    unexpectedLowLoad:
+    - enabled: true
+      thresholdPercentage: 80

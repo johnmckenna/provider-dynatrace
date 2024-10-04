@@ -1,0 +1,11 @@
+apiVersion: metrics.dynatrace.crossplane.io/v1alpha1
+kind: HistogramMetrics
+metadata:
+  annotations:
+    meta.upbound.io/example-id: metrics/v1alpha1/histogrammetrics
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enableHistogramBucketIngest: false

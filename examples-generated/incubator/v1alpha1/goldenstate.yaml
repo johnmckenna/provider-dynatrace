@@ -1,0 +1,14 @@
+apiVersion: incubator.dynatrace.crossplane.io/v1alpha1
+kind: GoldenState
+metadata:
+  annotations:
+    meta.upbound.io/example-id: incubator/v1alpha1/goldenstate
+  labels:
+    testing.upbound.io/example-name: golden_state
+  name: golden-state
+spec:
+  forProvider:
+    dynatraceManagementZoneV2:
+    - ${dynatrace_management_zone_v2.team-mainframe.id}
+    - ${dynatrace_management_zone_v2.frontend.id}
+    - ${dynatrace_management_zone_v2.team-hawaiian-pizza.id}

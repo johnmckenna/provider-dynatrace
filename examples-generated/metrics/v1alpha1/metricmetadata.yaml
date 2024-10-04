@@ -1,0 +1,13 @@
+apiVersion: metrics.dynatrace.crossplane.io/v1alpha1
+kind: MetricMetadata
+metadata:
+  annotations:
+    meta.upbound.io/example-id: metrics/v1alpha1/metricmetadata
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    displayName: '#name#'
+    metricId: metric-func:slo.terraform-test
+    unit: percent

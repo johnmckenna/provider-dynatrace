@@ -1,0 +1,16 @@
+apiVersion: browsermonitors.dynatrace.crossplane.io/v1alpha1
+kind: BrowserMonitorPerformance
+metadata:
+  annotations:
+    meta.upbound.io/example-id: browsermonitors/v1alpha1/browsermonitorperformance
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    scope: SYNTHETIC_TEST-1234567890000000
+    thresholds:
+    - threshold:
+      - event: SYNTHETIC_TEST-1234567890000000
+        threshold: 10

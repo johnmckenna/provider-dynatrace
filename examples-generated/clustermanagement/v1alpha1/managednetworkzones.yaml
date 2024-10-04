@@ -1,0 +1,15 @@
+apiVersion: clustermanagement.dynatrace.crossplane.io/v1alpha1
+kind: ManagedNetworkZones
+metadata:
+  annotations:
+    meta.upbound.io/example-id: clustermanagement/v1alpha1/managednetworkzones
+  labels:
+    testing.upbound.io/example-name: Test
+  name: test
+spec:
+  forProvider:
+    alternativeZones:
+    - alternativeexample
+    description: This is an example network zone
+    fallbackMode: ANY_ACTIVE_GATE
+    name: terraformtest

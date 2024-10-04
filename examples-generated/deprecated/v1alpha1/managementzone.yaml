@@ -1,0 +1,56 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: ManagementZone
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/managementzone
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: '#name#'
+    rules:
+    - conditions:
+      - key:
+        - attribute: PROCESS_GROUP_TAGS
+          type: STATIC
+        tag:
+        - operator: TAG_KEY_EQUALS
+          value:
+          - context: CONTEXTLESS
+            key: Environment
+      - key:
+        - attribute: PROCESS_GROUP_TAGS
+          type: STATIC
+        tag:
+        - operator: TAG_KEY_EQUALS
+          value:
+          - context: CONTEXTLESS
+            key: Team
+      enabled: true
+      propagationTypes:
+      - PROCESS_GROUP_TO_HOST
+      - PROCESS_GROUP_TO_SERVICE
+      type: PROCESS_GROUP
+    - conditions:
+      - key:
+        - attribute: PROCESS_GROUP_TAGS
+          type: STATIC
+        tag:
+        - operator: TAG_KEY_EQUALS
+          value:
+          - context: CONTEXTLESS
+            key: EnvironmentX
+      - key:
+        - attribute: PROCESS_GROUP_TAGS
+          type: STATIC
+        tag:
+        - operator: TAG_KEY_EQUALS
+          value:
+          - context: CONTEXTLESS
+            key: TeamX
+      enabled: true
+      propagationTypes:
+      - PROCESS_GROUP_TO_HOST
+      - PROCESS_GROUP_TO_SERVICE
+      type: PROCESS_GROUP

@@ -1,0 +1,34 @@
+apiVersion: failuredetection.dynatrace.crossplane.io/v1alpha1
+kind: ServiceFailure
+metadata:
+  annotations:
+    meta.upbound.io/example-id: failuredetection/v1alpha1/servicefailure
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    exceptionRules:
+    - customErrorRules:
+      - customErrorRule:
+        - condition:
+          - caseSensitive: false
+            compareOperationType: STARTS_WITH
+            textValue: terraform
+          requestAttribute: 00000000-0000-0000-0000-000000000000
+      customHandledExceptions:
+      - customHandledException:
+        - classPattern: ClassPatternExample
+          messagePattern: ExceptionMessagePatternExample
+      ignoreAllExceptions: false
+      ignoreSpanFailureDetection: true
+      ignoredExceptions:
+      - customHandledException:
+        - classPattern: ClassPatternExample
+          messagePattern: ExceptionMessagePatternExample
+      successForcingExceptions:
+      - customHandledException:
+        - classPattern: ClassPatternExample
+          messagePattern: ExceptionMessagePatternExample
+    serviceId: SERVICE-D892CFE7DFAB0D08

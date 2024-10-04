@@ -1,0 +1,12 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: DiskAnalytics
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/diskanalytics
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    scope: HOST-1234567890000000

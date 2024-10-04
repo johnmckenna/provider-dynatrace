@@ -1,0 +1,21 @@
+apiVersion: cloudplatforms.dynatrace.crossplane.io/v1alpha1
+kind: KubernetesEnrichment
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cloudplatforms/v1alpha1/kubernetesenrichment
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    rules:
+    - rule:
+      - enabled: true
+        source: '#name#'
+        target: dt.cost.product
+        type: LABEL
+      - enabled: true
+        source: '#name#'
+        target: dt.security_context
+        type: ANNOTATION
+    scope: environment

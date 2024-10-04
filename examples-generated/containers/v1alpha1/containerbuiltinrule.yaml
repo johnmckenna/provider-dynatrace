@@ -1,0 +1,14 @@
+apiVersion: containers.dynatrace.crossplane.io/v1alpha1
+kind: ContainerBuiltinRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: containers/v1alpha1/containerbuiltinrule
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    ignoreDockerPauseContainer: false
+    ignoreKubernetesPauseContainer: true
+    ignoreOpenShiftBuildPodName: false
+    ignoreOpenShiftSdnNamespace: true

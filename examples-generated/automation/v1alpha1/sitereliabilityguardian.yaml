@@ -1,0 +1,32 @@
+apiVersion: automation.dynatrace.crossplane.io/v1alpha1
+kind: SiteReliabilityGuardian
+metadata:
+  annotations:
+    meta.upbound.io/example-id: automation/v1alpha1/sitereliabilityguardian
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: Test
+    objectives:
+    - objective:
+      - comparisonOperator: LESS_THAN_OR_EQUAL
+        dqlQuery: |
+          fetch logs
+          | fieldsAdd errors = toLong(loglevel == "ERROR")
+          | summarize errorRate = sum(errors)/count() * 100
+        name: Error rate
+        objectiveType: DQL
+        target: 8
+        warning: 6
+      - comparisonOperator: GREATER_THAN_OR_EQUAL
+        dqlQuery: |
+          fetch bizevents
+          | summarize count()
+        name: Count bizevents
+        objectiveType: DQL
+        target: 50
+        warning: 55
+    tags:
+    - stage:staging

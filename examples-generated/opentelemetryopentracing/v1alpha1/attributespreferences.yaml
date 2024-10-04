@@ -1,0 +1,11 @@
+apiVersion: opentelemetryopentracing.dynatrace.crossplane.io/v1alpha1
+kind: AttributesPreferences
+metadata:
+  annotations:
+    meta.upbound.io/example-id: opentelemetryopentracing/v1alpha1/attributespreferences
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    persistenceMode: BLOCK_ALL_ATTRIBUTES

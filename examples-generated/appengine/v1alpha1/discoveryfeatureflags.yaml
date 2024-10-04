@@ -1,0 +1,12 @@
+apiVersion: appengine.dynatrace.crossplane.io/v1alpha1
+kind: DiscoveryFeatureFlags
+metadata:
+  annotations:
+    meta.upbound.io/example-id: appengine/v1alpha1/discoveryfeatureflags
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: '#name#'
+    type: boolean

@@ -1,0 +1,15 @@
+apiVersion: networkavailabilitymonitors.dynatrace.crossplane.io/v1alpha1
+kind: NetworkMonitorOutage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: networkavailabilitymonitors/v1alpha1/networkmonitoroutage
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    globalConsecutiveOutageCountThreshold: 5
+    globalOutages: true
+    localConsecutiveOutageCountThreshold: 3
+    localLocationOutageCountThreshold: 1
+    localOutages: true

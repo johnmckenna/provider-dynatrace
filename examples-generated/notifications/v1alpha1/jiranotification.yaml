@@ -1,0 +1,37 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: JiraNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/jiranotification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    active: false
+    apiTokenSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    description: jira-description
+    issueType: jira-issue-type
+    name: '#name#'
+    profile: ${dynatrace_alerting.Default.id}
+    projectKey: '#name#'
+    summary: jira-summary
+    url: https://localhost:9999/jira/#name#
+    username: jira-user-name
+
+---
+
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: Alerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/jiranotification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    name: '#name#'

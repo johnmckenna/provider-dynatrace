@@ -1,0 +1,15 @@
+apiVersion: automation.dynatrace.crossplane.io/v1alpha1
+kind: AutomationWorkflowSlack
+metadata:
+  annotations:
+    meta.upbound.io/example-id: automation/v1alpha1/automationworkflowslack
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: '#name#'
+    tokenSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system

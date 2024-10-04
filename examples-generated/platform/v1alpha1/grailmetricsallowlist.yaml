@@ -1,0 +1,15 @@
+apiVersion: platform.dynatrace.crossplane.io/v1alpha1
+kind: GrailMetricsAllowlist
+metadata:
+  annotations:
+    meta.upbound.io/example-id: platform/v1alpha1/grailmetricsallowlist
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    allowRules:
+    - allowRule:
+      - enabled: false
+        metricKey: terraform
+        pattern: CONTAINS

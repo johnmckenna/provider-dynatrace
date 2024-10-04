@@ -1,0 +1,12 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: HubPermissions
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/hubpermissions
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    description: This is an example description
+    email: terraform@dynatrace.com

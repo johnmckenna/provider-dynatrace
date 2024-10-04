@@ -1,0 +1,41 @@
+apiVersion: servicedetection.dynatrace.crossplane.io/v1alpha1
+kind: CustomService
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicedetection/v1alpha1/customservice
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    name: '#name#'
+    queueEntryPoint: false
+    rule:
+    - annotations:
+      - com.example.ExampleAnnotation
+      class:
+      - match: EQUALS
+        name: com.example.Prefix
+      enabled: true
+      method:
+      - arguments:
+        - java.lang.String
+        - java.lang.String
+        name: methodA
+        returns: java.lang.String
+      - name: methodB
+        returns: void
+    - class:
+      - match: ENDS_WITH
+        name: com.example.Suffix
+      enabled: true
+      method:
+      - arguments:
+        - java.lang.String
+        - java.lang.String
+        name: methodC
+        returns: java.lang.String
+      - name: methodD
+        returns: void
+    technology: java

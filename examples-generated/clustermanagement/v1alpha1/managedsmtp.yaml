@@ -1,0 +1,22 @@
+apiVersion: clustermanagement.dynatrace.crossplane.io/v1alpha1
+kind: ManagedSMTP
+metadata:
+  annotations:
+    meta.upbound.io/example-id: clustermanagement/v1alpha1/managedsmtp
+  labels:
+    testing.upbound.io/example-name: Test
+  name: test
+spec:
+  forProvider:
+    allowFallbackViaMissionControl: true
+    connectionSecurity: NO_ENCRYPTION
+    hostName: hostname
+    isPasswordConfigured: true
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    port: "25"
+    senderEmailAddress: noreply@dynatrace-managed.com
+    useSmtpServer: true
+    userName: username

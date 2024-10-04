@@ -1,0 +1,20 @@
+apiVersion: processmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessAvailability
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processmonitoring/v1alpha1/processavailability
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    metadata:
+    - item:
+      - key: foo
+        value: bar
+    name: '#name#'
+    rules:
+    - rule:
+      - condition: $contains(svc)
+        property: executable

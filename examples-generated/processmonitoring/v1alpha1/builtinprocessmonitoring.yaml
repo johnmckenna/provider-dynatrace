@@ -1,0 +1,21 @@
+apiVersion: processmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: BuiltinProcessMonitoring
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processmonitoring/v1alpha1/builtinprocessmonitoring
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    aspnetcore: false
+    cfAppsmanagerjs: false
+    container: false
+    dockerPauseamd64: false
+    exeBbs: false
+    exeCaddy: false
+    exeSchedular: false
+    exeSilkdaemon: false
+    goStatic: false
+    hostGroupId: environment
+    nodeNodegyp: false

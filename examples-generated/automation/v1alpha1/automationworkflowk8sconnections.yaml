@@ -1,0 +1,17 @@
+apiVersion: automation.dynatrace.crossplane.io/v1alpha1
+kind: AutomationWorkflowK8SConnections
+metadata:
+  annotations:
+    meta.upbound.io/example-id: automation/v1alpha1/automationworkflowk8sconnections
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: terraform1
+    namespace: terraform1
+    tokenSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    uid: c6a3798e-634e-49fd-a3ca-00e5c16a1bf3

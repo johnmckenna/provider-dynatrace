@@ -1,0 +1,27 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: OsServices
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/osservices
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    alertActivationDuration: 5
+    alerting: true
+    detectionConditionsLinux:
+    - linuxDetectionCondition:
+      - condition: $contains(Terraform)
+        property: ServiceName
+    enabled: true
+    metadata:
+    - item:
+      - metadataKey: TerraformKey
+        metadataValue: TerraformValue
+    monitoring: true
+    name: '#name#'
+    notInstalledAlerting: true
+    scope: HOST-1234567890000000
+    statusConditionLinux: $eq(failed)
+    system: LINUX

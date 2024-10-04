@@ -1,0 +1,12 @@
+apiVersion: monitoredtechnologies.dynatrace.crossplane.io/v1alpha1
+kind: MonitoredTechnologiesNodeJS
+metadata:
+  annotations:
+    meta.upbound.io/example-id: monitoredtechnologies/v1alpha1/monitoredtechnologiesnodejs
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    hostId: environment

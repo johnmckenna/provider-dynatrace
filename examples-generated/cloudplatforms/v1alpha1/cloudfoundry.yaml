@@ -1,0 +1,20 @@
+apiVersion: cloudplatforms.dynatrace.crossplane.io/v1alpha1
+kind: CloudFoundry
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cloudplatforms/v1alpha1/cloudfoundry
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    activeGateGroup: Terraform
+    apiUrl: https://www.google.at/test/#name#
+    enabled: true
+    label: '#name#'
+    loginUrl: https://www.google.at/test/#name#
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    username: user

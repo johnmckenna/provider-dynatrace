@@ -1,0 +1,18 @@
+apiVersion: opentelemetryopentracing.dynatrace.crossplane.io/v1alpha1
+kind: SpanEntryPoint
+metadata:
+  annotations:
+    meta.upbound.io/example-id: opentelemetryopentracing/v1alpha1/spanentrypoint
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    action: DONT_CREATE_ENTRYPOINT
+    matches:
+    - match:
+      - caseSensitive: true
+        comparison: DOES_NOT_CONTAIN
+        source: SPAN_NAME
+        value: foo
+    name: '#name#'

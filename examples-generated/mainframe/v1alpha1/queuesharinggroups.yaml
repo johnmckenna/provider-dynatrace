@@ -1,0 +1,18 @@
+apiVersion: mainframe.dynatrace.crossplane.io/v1alpha1
+kind: QueueSharingGroups
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mainframe/v1alpha1/queuesharinggroups
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: '#name#'
+    queueManagers:
+    - QueueManager1
+    - QueueManager2
+    - QueueManager3
+    sharedQueues:
+    - SharedQueue1
+    - SharedQueue2

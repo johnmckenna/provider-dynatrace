@@ -1,0 +1,14 @@
+apiVersion: businessevents.dynatrace.crossplane.io/v1alpha1
+kind: BusinessEventsBuckets
+metadata:
+  annotations:
+    meta.upbound.io/example-id: businessevents/v1alpha1/businesseventsbuckets
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    bucketName: default_bizevents
+    enabled: true
+    matcher: matchesValue(event.type, "com.easytrade.buy-assets")
+    ruleName: '#name#'

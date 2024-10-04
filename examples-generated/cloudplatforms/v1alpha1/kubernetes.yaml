@@ -1,0 +1,15 @@
+apiVersion: cloudplatforms.dynatrace.crossplane.io/v1alpha1
+kind: Kubernetes
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cloudplatforms/v1alpha1/kubernetes
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    clusterId: '#name#'
+    clusterIdEnabled: true
+    enabled: true
+    label: '#name#'
+    scope: KUBERNETES_CLUSTER-1234567890000000

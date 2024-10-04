@@ -1,0 +1,17 @@
+apiVersion: applicationsecurity.dynatrace.crossplane.io/v1alpha1
+kind: AttackAllowlist
+metadata:
+  annotations:
+    meta.upbound.io/example-id: applicationsecurity/v1alpha1/attackallowlist
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    attackHandling:
+    - blockingStrategy: MONITOR
+    criteria:
+    - sourceIp: 192.168.0.1
+    enabled: false
+    metadata:
+    - comment: ""

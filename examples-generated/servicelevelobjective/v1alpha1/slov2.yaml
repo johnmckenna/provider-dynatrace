@@ -1,0 +1,22 @@
+apiVersion: servicelevelobjective.dynatrace.crossplane.io/v1alpha1
+kind: SLOV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicelevelobjective/v1alpha1/slov2
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    customDescription: Terraform Test
+    enabled: true
+    errorBudgetBurnRate:
+    - burnRateVisualizationEnabled: false
+    evaluationType: AGGREGATE
+    evaluationWindow: -1w
+    filter: type(SERVICE),serviceType(WEB_SERVICE,WEB_REQUEST_SERVICE)
+    metricExpression: 100*(builtin:service.requestCount.server:splitBy())/(builtin:service.requestCount.server:splitBy())
+    metricName: terraform_test
+    name: '#name#'
+    targetSuccess: 95
+    targetWarning: 98

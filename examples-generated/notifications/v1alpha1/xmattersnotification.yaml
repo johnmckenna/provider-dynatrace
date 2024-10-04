@@ -1,0 +1,39 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: XmattersNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/xmattersnotification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    active: false
+    headers:
+    - header:
+      - name: http-header-name-01
+        value: http-header-value-01
+      - name: http-header-name-02
+        secretValueSecretRef:
+          key: example-key
+          name: example-secret
+          namespace: upbound-system
+    insecure: true
+    name: '#name#'
+    payload: x-matters-payload
+    profile: ${dynatrace_alerting.Default.id}
+    url: https://webhook.site/#name#
+
+---
+
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: Alerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/xmattersnotification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    name: '#name#'

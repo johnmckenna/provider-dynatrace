@@ -1,0 +1,16 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: RumProviderBreakdown
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/rumproviderbreakdown
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    domainNamePatternList:
+    - domainNamePattern:
+      - pattern: Terraform3rdPartyExample.com
+    reportPublicImprovement: false
+    resourceName: '#name#'
+    resourceType: ThirdParty

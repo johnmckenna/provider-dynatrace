@@ -1,0 +1,17 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: SLO
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/slo
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    evaluation: AGGREGATE
+    filter: type("APPLICATION_METHOD")
+    metricExpression: builtin:apps.web.action.speedIndex.load.browser:splitBy()
+    name: '#name#'
+    target: 99.58
+    timeframe: -5m
+    warning: 99.99

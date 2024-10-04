@@ -1,0 +1,18 @@
+apiVersion: tags.dynatrace.crossplane.io/v1alpha1
+kind: AutotagV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: tags/v1alpha1/autotagv2
+  labels:
+    testing.upbound.io/example-name: GKESample
+  name: gkesample
+spec:
+  forProvider:
+    name: GKE-Hosts
+    rules:
+    - rule:
+      - enabled: true
+        entitySelector: type(host),entityName.startsWith("gke")
+        type: SELECTOR
+        valueFormat: "true"
+        valueNormalization: Leave text as-is

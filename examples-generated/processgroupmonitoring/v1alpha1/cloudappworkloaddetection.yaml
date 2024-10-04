@@ -1,0 +1,27 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: CloudappWorkloaddetection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/cloudappworkloaddetection
+  labels:
+    testing.upbound.io/example-name: cloud_app_workload_detection
+  name: cloud-app-workload-detection
+spec:
+  forProvider:
+    cloudFoundry:
+    - enabled: false
+    docker:
+    - enabled: true
+    kubernetes:
+    - enabled: true
+      filters:
+      - filter:
+        - enabled: false
+          inclusionToggles:
+          - incBasepod: false
+            incContainer: true
+            incNamespace: true
+            incProduct: true
+            incStage: true
+          matchFilter:
+          - matchOperator: EXISTS

@@ -1,0 +1,12 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessGroupMonitoring
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/processgroupmonitoring
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    monitoringState: MONITORING_ON
+    processGroupId: PROCESS_GROUP-1234567890000000

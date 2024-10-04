@@ -1,0 +1,13 @@
+apiVersion: updates.dynatrace.crossplane.io/v1alpha1
+kind: OneagentUpdates
+metadata:
+  annotations:
+    meta.upbound.io/example-id: updates/v1alpha1/oneagentupdates
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    scope: environment
+    targetVersion: latest
+    updateMode: AUTOMATIC

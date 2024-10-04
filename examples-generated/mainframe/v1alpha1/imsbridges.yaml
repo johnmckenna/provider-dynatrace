@@ -1,0 +1,18 @@
+apiVersion: mainframe.dynatrace.crossplane.io/v1alpha1
+kind: ImsBridges
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mainframe/v1alpha1/imsbridges
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: '#name#'
+    queueManagers:
+    - queueManager:
+      - name: QueueManagerExample1
+      - name: QueueManagerExample2
+        queueManagerQueue:
+        - Queue1
+        - Queue2

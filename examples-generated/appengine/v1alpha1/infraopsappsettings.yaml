@@ -1,0 +1,12 @@
+apiVersion: appengine.dynatrace.crossplane.io/v1alpha1
+kind: InfraopsAppSettings
+metadata:
+  annotations:
+    meta.upbound.io/example-id: appengine/v1alpha1/infraopsappsettings
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    showMonitoringCandidates: true
+    showStandaloneHosts: true

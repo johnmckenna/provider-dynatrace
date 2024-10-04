@@ -1,0 +1,32 @@
+apiVersion: ownership.dynatrace.crossplane.io/v1alpha1
+kind: OwnershipTeams
+metadata:
+  annotations:
+    meta.upbound.io/example-id: ownership/v1alpha1/ownershipteams
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    additionalInformation:
+    - additionalInformation:
+      - key: HashiCorp
+        url: https://www.terraform.io/
+        value: Terraform
+    contactDetails:
+    - contactDetail:
+      - email: kodai.ishikawa@dynatrace.com
+        integrationType: EMAIL
+    description: Created by Terraform
+    identifier: Terraform
+    links:
+    - link:
+      - linkType: URL
+        url: https://www.google.com
+    name: '#name#'
+    responsibilities:
+    - development: true
+      infrastructure: false
+      lineOfBusiness: false
+      operations: true
+      security: false

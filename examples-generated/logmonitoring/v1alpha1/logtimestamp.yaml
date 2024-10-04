@@ -1,0 +1,21 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogTimestamp
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logtimestamp
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    configItemTitle: '#name#'
+    dateTimePattern: '%m/%d/%Y %I:%M:%S %p'
+    enabled: false
+    matchers:
+    - matcher:
+      - attribute: container.name
+        operator: MATCHES
+        values:
+        - terraform
+    scope: environment
+    timezone: America/Detroit

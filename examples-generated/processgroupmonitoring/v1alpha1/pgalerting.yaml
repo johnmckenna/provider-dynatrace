@@ -1,0 +1,14 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: PgAlerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/pgalerting
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    alertingMode: ON_INSTANCE_COUNT_VIOLATION
+    enabled: true
+    minimumInstanceThreshold: 5
+    processGroup: PROCESS_GROUP-1234567890000000

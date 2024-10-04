@@ -1,0 +1,49 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: HostAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/hostanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    connections:
+    - enabled: true
+      enabledOnGracefulShutdowns: false
+    cpu:
+    - enabled: true
+    disks:
+    - inodes:
+      - enabled: true
+      space:
+      - enabled: true
+      speed:
+      - enabled: true
+    gc:
+    - enabled: true
+    java:
+    - outOfMemory:
+      - enabled: true
+      outOfThreads:
+      - enabled: true
+    memory:
+    - enabled: true
+      thresholds:
+      - linux:
+        - pageFaults: 20
+          usage: 80
+        windows:
+        - pageFaults: 100
+          usage: 80
+    network:
+    - connectivity:
+      - enabled: true
+      droppedPackets:
+      - enabled: true
+      errors:
+      - enabled: true
+      retransmission:
+      - enabled: true
+      utilization:
+      - enabled: true

@@ -1,0 +1,31 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: DiskEdgeAnomalyDetectors
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/diskedgeanomalydetectors
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    alerts:
+    - alert:
+      - sampleCountThresholds:
+        - dealertingEvaluationWindow: 30
+          dealertingSamples: 24
+          violatingEvaluationWindow: 30
+          violatingSamples: 18
+        thresholdPercent: 10
+        trigger: AVAILABLE_DISK_SPACE_PERCENT_BELOW
+    diskNameFilters:
+    - $eq(/)
+    enabled: true
+    eventProperties:
+    - eventPropertie:
+      - metadataKey: ExampleKey
+        metadataValue: ExampleValue
+    operatingSystem:
+    - WINDOWS
+    - LINUX
+    policyName: '#name#'
+    scope: environment

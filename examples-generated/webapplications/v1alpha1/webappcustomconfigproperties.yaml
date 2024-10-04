@@ -1,0 +1,12 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebAppCustomConfigProperties
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webappcustomconfigproperties
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    applicationId: APPLICATION-1234567890000000
+    customProperty: examplekey=examplevalue

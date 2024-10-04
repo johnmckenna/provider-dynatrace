@@ -1,0 +1,16 @@
+apiVersion: servicesettings.dynatrace.crossplane.io/v1alpha1
+kind: DavisCopilot
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicesettings/v1alpha1/daviscopilot
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    blocklistEntries:
+    - blocklistEntrie:
+      - name: '#name#'
+        type: TABLE
+    enableCopilot: true
+    enableTenantAwareDataMining: true

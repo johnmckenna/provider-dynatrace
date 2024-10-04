@@ -1,0 +1,14 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: OneagentFeatures
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/oneagentfeatures
+  labels:
+    testing.upbound.io/example-name: SENSOR_DOTNET_ASPNET
+  name: sensor-dotnet-aspnet
+spec:
+  forProvider:
+    enabled: true
+    instrumentation: true
+    key: SENSOR_DOTNET_ASPNET
+    scope: environment

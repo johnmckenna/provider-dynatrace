@@ -1,0 +1,39 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: WebAppAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/webappanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    errorRate:
+    - enabled: true
+      errorRateAuto:
+      - absoluteIncrease: 10
+        overAlertingProtection:
+        - actionsPerMinute: 12
+          minutesAbnormalState: 2
+        relativeIncrease: 70
+      errorRateDetectionMode: auto
+    responseTime:
+    - detectionMode: fixed
+      enabled: true
+      responseTimeFixed:
+      - overAlertingProtection:
+        - actionsPerMinute: 10
+          minutesAbnormalState: 1
+        responseTimeAll:
+        - degradationMilliseconds: 100
+        responseTimeSlowest:
+        - slowestDegradationMilliseconds: 1000
+        sensitivity: low
+    scope: APPLICATION-1234567890000000
+    trafficDrops:
+    - enabled: false
+    trafficSpikes:
+    - enabled: true
+      trafficSpikes:
+      - minutesAbnormalState: 2
+        trafficSpikePercentage: 250

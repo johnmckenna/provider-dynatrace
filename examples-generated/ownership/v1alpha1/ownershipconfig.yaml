@@ -1,0 +1,16 @@
+apiVersion: ownership.dynatrace.crossplane.io/v1alpha1
+kind: OwnershipConfig
+metadata:
+  annotations:
+    meta.upbound.io/example-id: ownership/v1alpha1/ownershipconfig
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    ownershipIdentifiers:
+    - ownershipIdentifier:
+      - enabled: true
+        key: dt.owner
+      - enabled: true
+        key: owner

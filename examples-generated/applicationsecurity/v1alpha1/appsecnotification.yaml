@@ -1,0 +1,26 @@
+apiVersion: applicationsecurity.dynatrace.crossplane.io/v1alpha1
+kind: AppsecNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: applicationsecurity/v1alpha1/appsecnotification
+  labels:
+    testing.upbound.io/example-name: Terraform_Security_Problem_Webhook_Test
+  name: terraform-security-problem-webhook-test
+spec:
+  forProvider:
+    displayName: Terraform Security Problem Webhook Test
+    enabled: true
+    securityProblemBasedAlertingProfile: vu9U3hXa3q0AAAABACxidWlsdGluOmFwcHNlYy5ub3RpZmljYXRpb24tYWxlcnRpbmctcHJvZmlsZQAGdGVuYW50AAZ0ZW5hbnQAJDMyMDhkNWMyLTFlZmYtMzk5My1iNjMwLWI0MjQ5N2U4MDQ2Nr7vVN4V2t6t
+    securityProblemBasedWebhookPayload:
+    - payload: |-
+        ${jsonencode({
+                  "DavisSecurityScore": "{DavisSecurityScore}",
+                  "SecurityProblemId": "{SecurityProblemId}",
+                  "SecurityProblemUrl": "{SecurityProblemUrl}",
+                  "Severity": "{Severity}"
+              })}
+    trigger: SECURITY_PROBLEM
+    type: WEBHOOK
+    webhookConfiguration:
+    - acceptAnyCertificate: false
+      url: https://www.dynatrace.com

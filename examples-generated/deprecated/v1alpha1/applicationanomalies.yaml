@@ -1,0 +1,25 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: ApplicationAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/applicationanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    failureRate:
+    - auto:
+      - absolute: 5
+        relative: 50
+    responseTime:
+    - auto:
+      - load: TEN_REQUESTS_PER_MINUTE
+        milliseconds: 100
+        percent: 50
+        slowestMilliseconds: 1000
+        slowestPercent: 100
+    traffic:
+    - drops:
+      - enabled: true
+        percent: 50

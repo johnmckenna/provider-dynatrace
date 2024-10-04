@@ -1,0 +1,21 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: ResourceAttributes
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/resourceattributes
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    keys:
+    - rule:
+      - attributeKey: cdefgh
+        enabled: true
+        masking: NOT_MASKED
+      - attributeKey: gffgf
+        enabled: true
+        masking: NOT_MASKED
+      - attributeKey: jjhhj
+        enabled: true
+        masking: NOT_MASKED

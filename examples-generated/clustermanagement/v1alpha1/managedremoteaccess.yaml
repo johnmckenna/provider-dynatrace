@@ -1,0 +1,14 @@
+apiVersion: clustermanagement.dynatrace.crossplane.io/v1alpha1
+kind: ManagedRemoteAccess
+metadata:
+  annotations:
+    meta.upbound.io/example-id: clustermanagement/v1alpha1/managedremoteaccess
+  labels:
+    testing.upbound.io/example-name: Test
+  name: test
+spec:
+  forProvider:
+    reason: Example
+    requestedDays: 1
+    role: devops-admin
+    userId: example@dynatrace.com

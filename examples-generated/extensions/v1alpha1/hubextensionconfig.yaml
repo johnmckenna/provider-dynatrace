@@ -1,0 +1,24 @@
+apiVersion: extensions.dynatrace.crossplane.io/v1alpha1
+kind: HubExtensionConfig
+metadata:
+  annotations:
+    meta.upbound.io/example-id: extensions/v1alpha1/hubextensionconfig
+  labels:
+    testing.upbound.io/example-name: com_dynatrace_extension_jmx-weblogic-cp
+  name: com-dynatrace-extension-jmx-weblogic-cp
+spec:
+  forProvider:
+    name: com.dynatrace.extension.jmx-weblogic-cp
+    value: |-
+      ${jsonencode(
+          {
+            "enabled" : true,
+            "description" : "jj",
+            "version" : "2.0.4",
+            "featureSets" : [
+              "cache",
+              "connections",
+              "capacity"
+            ]
+          }
+        )}

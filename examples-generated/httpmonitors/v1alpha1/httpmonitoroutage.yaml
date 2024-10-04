@@ -1,0 +1,16 @@
+apiVersion: httpmonitors.dynatrace.crossplane.io/v1alpha1
+kind: HTTPMonitorOutage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: httpmonitors/v1alpha1/httpmonitoroutage
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    globalConsecutiveOutageCountThreshold: 3
+    globalOutages: true
+    localConsecutiveOutageCountThreshold: 5
+    localLocationOutageCountThreshold: 1
+    localOutages: true
+    scope: environment

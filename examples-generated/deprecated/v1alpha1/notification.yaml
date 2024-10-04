@@ -1,0 +1,31 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: Notification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/notification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    slack:
+    - active: true
+      alertingProfile: ${dynatrace_alerting_profile.Default.id}
+      channel: '#dynatrace-critical'
+      name: '#name#'
+      title: Test2
+      url: https://www.google.at/#name#
+
+---
+
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: AlertingProfile
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/notification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    displayName: '#name#'

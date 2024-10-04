@@ -1,0 +1,17 @@
+apiVersion: automation.dynatrace.crossplane.io/v1alpha1
+kind: AutomationWorkflowAwsConnections
+metadata:
+  annotations:
+    meta.upbound.io/example-id: automation/v1alpha1/automationworkflowawsconnections
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: '#name#'
+    type: webIdentity
+    webIdentity:
+    - roleArnSecretRef:
+        key: example-key
+        name: example-secret
+        namespace: upbound-system

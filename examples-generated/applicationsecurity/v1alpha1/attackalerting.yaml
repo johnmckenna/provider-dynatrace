@@ -1,0 +1,16 @@
+apiVersion: applicationsecurity.dynatrace.crossplane.io/v1alpha1
+kind: AttackAlerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: applicationsecurity/v1alpha1/attackalerting
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    enabledAttackMitigations:
+    - NONE_ALLOWLISTED
+    - BLOCKED_WITH_EXCEPTION
+    - NONE_BLOCKING_DISABLED
+    name: '#name#'

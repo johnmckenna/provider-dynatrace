@@ -1,0 +1,12 @@
+apiVersion: opentelemetryopentracing.dynatrace.crossplane.io/v1alpha1
+kind: AttributeBlockList
+metadata:
+  annotations:
+    meta.upbound.io/example-id: opentelemetryopentracing/v1alpha1/attributeblocklist
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    key: attribute.example

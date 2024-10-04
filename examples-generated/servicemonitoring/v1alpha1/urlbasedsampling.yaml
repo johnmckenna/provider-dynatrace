@@ -1,0 +1,21 @@
+apiVersion: servicemonitoring.dynatrace.crossplane.io/v1alpha1
+kind: URLBasedSampling
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicemonitoring/v1alpha1/urlbasedsampling
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    factor: ReduceCapturingByFactor16
+    httpMethodAny: true
+    ignore: false
+    path: /examplepath
+    pathComparisonType: EQUALS
+    queryParameters:
+    - parameter:
+      - name: QueryName
+        value: QueryValue
+        valueIsUndefined: false

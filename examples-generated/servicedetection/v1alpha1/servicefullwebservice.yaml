@@ -1,0 +1,51 @@
+apiVersion: servicedetection.dynatrace.crossplane.io/v1alpha1
+kind: ServiceFullWebService
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicedetection/v1alpha1/servicefullwebservice
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    conditions:
+    - condition:
+      - attribute: HostName
+        compareOperationType: StringEndsWith
+        ignoreCase: true
+        textValues:
+        - Terraform
+    description: Created by Terraform
+    enabled: true
+    idContributors:
+    - detectAsWebRequestService: true
+    managementZones:
+    - ${dynatrace_management_zone_v2.my-mgmz.id}
+    name: '#name#'
+
+---
+
+apiVersion: servicedetection.dynatrace.crossplane.io/v1alpha1
+kind: ManagementZoneV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicedetection/v1alpha1/servicefullwebservice
+  labels:
+    testing.upbound.io/example-name: my-mgmz
+  name: my-mgmz
+spec:
+  forProvider:
+    name: '#name#'
+    rules:
+    - rule:
+      - attributeRule:
+        - attributeConditions:
+          - condition:
+            - caseSensitive: false
+              key: KUBERNETES_CLUSTER_NAME
+              operator: EQUALS
+              stringValue: extensions
+          entityType: CLOUD_APPLICATION_NAMESPACE
+        enabled: true
+        entitySelector: ""
+        type: ME

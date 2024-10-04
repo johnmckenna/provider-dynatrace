@@ -1,0 +1,15 @@
+apiVersion: dashboards.dynatrace.crossplane.io/v1alpha1
+kind: DashboardsPresets
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dashboards/v1alpha1/dashboardspresets
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    dashboardPresetsList:
+    - dashboardPresets:
+      - dashboardPreset: 41eae96d-4930-4f44-bbd8-3699f21a8bbf
+        userGroup: d0c2d3e3-c1b4-456a-b0ce-c560273f1488
+    enableDashboardPresets: true

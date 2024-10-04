@@ -1,0 +1,12 @@
+apiVersion: developerobservability.dynatrace.crossplane.io/v1alpha1
+kind: DevobsGitOnprem
+metadata:
+  annotations:
+    meta.upbound.io/example-id: developerobservability/v1alpha1/devobsgitonprem
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    gitProvider: GithubOnPrem
+    url: http://www.google.com/test/#name#

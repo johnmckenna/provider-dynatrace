@@ -1,0 +1,17 @@
+apiVersion: processmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessMonitoringRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processmonitoring/v1alpha1/processmonitoringrule
+  labels:
+    testing.upbound.io/example-name: test
+  name: test
+spec:
+  forProvider:
+    condition:
+    - item: APACHE_CONFIG_PATH
+      operator: STARTS
+      value: foo-bar-x
+    enabled: true
+    hostGroupId: HOST_GROUP-0000000000000000
+    mode: MONITORING_OFF

@@ -1,0 +1,13 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: HostProcessGroupMonitoring
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/hostprocessgroupmonitoring
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    hostId: HOST-1234567890000000
+    monitoringState: MONITORING_ON
+    processGroup: PROCESS_GROUP-1234567890000000

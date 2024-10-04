@@ -1,0 +1,16 @@
+apiVersion: httpmonitors.dynatrace.crossplane.io/v1alpha1
+kind: HTTPMonitorPerformance
+metadata:
+  annotations:
+    meta.upbound.io/example-id: httpmonitors/v1alpha1/httpmonitorperformance
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    scope: HTTP_CHECK-1234567890000000
+    thresholds:
+    - threshold:
+      - event: HTTP_CHECK-1234567890000000
+        threshold: 10

@@ -1,0 +1,17 @@
+apiVersion: mainframe.dynatrace.crossplane.io/v1alpha1
+kind: MainframeTransactionMonitoring
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mainframe/v1alpha1/mainframetransactionmonitoring
+  labels:
+    testing.upbound.io/example-name: mainframe_transaction_monitoring
+  name: mainframe-transaction-monitoring
+spec:
+  forProvider:
+    groupCicsRegions: true
+    groupImsRegions: false
+    monitorAllCtgProtocols: false
+    monitorAllIncomingWebRequests: false
+    nodeLimit: 500
+    zosCicsServiceDetectionUsesTransactionId: false
+    zosImsServiceDetectionUsesTransactionId: false

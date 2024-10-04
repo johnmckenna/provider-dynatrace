@@ -1,0 +1,29 @@
+apiVersion: servicemonitoring.dynatrace.crossplane.io/v1alpha1
+kind: CalculatedServiceMetric
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicemonitoring/v1alpha1/calculatedservicemetric
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    conditions:
+    - condition:
+      - attribute: HTTP_REQUEST_METHOD
+        comparison:
+        - httpMethod:
+          - operator: EQUALS_ANY_OF
+            values:
+            - POST
+            - GET
+          negate: false
+    enabled: true
+    managementZones:
+    - AAAA
+    metricDefinition:
+    - metric: REQUEST_ATTRIBUTE
+      requestAttribute: foo
+    metricKey: calc:service.#name#
+    name: '#name#'
+    unit: MILLI_SECOND_PER_MINUTE

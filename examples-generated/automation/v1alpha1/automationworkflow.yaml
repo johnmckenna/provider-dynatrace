@@ -1,0 +1,85 @@
+apiVersion: automation.dynatrace.crossplane.io/v1alpha1
+kind: AutomationWorkflow
+metadata:
+  annotations:
+    meta.upbound.io/example-id: automation/v1alpha1/automationworkflow
+  labels:
+    testing.upbound.io/example-name: Sample_Worklow_TF
+  name: sample-worklow-tf
+spec:
+  forProvider:
+    actor: '########-####-####-####-############'
+    description: Desc
+    owner: '########-####-####-####-############'
+    private: true
+    tasks:
+    - task:
+      - action: dynatrace.automations:http-function
+        active: true
+        description: Issue an HTTP request to any API
+        input: |-
+          ${jsonencode({
+                  "method" : "GET",
+                  "url" : "https://www.google.at/"
+                })}
+        name: http_request_1
+        position:
+        - x: 0
+          "y": 1
+      - action: dynatrace.automations:http-function
+        active: false
+        conditions:
+        - custom: ""
+          states:
+            http_request_1: SUCCESS
+            run_javascript_1: OK
+        description: Issue an HTTP request to any API
+        input: |-
+          ${jsonencode({
+                  "method" : "GET",
+                  "url" : "https://www.second-task.com/"
+                })}
+        name: http_request_2
+        position:
+        - x: -1
+          "y": 2
+        timeout: 50000
+      - action: dynatrace.automations:http-function
+        active: false
+        conditions:
+        - custom: '{{http_request_1}}'
+          states:
+            http_request_2: OK
+        description: Issue an HTTP request to any API
+        input: |-
+          ${jsonencode({
+                  "method" : "GET",
+                  "url" : "https://www.third-task.com"
+                })}
+        name: http_request_3
+        position:
+        - x: 0
+          "y": 3
+      - action: dynatrace.automations:run-javascript
+        active: false
+        description: Build a custom task running js Code
+        input: |-
+          ${jsonencode({
+                  "script" : "// optional import of sdk modules\nimport { execution } from '@dynatrace-sdk/automation-utils';\n\nexport default async function ({ execution_id }) {\n  // your code goes here\n  // e.g. get the current execution\n  const ex = await execution(execution_id);\n  console.log('Automated script execution on behalf of', ex.trigger);\n  \n  return { triggeredBy: ex.trigger };\n}"
+                })}
+        name: run_javascript_1
+        position:
+        - x: -2
+          "y": 1
+    title: Sample Worklow TF1
+    trigger:
+    - event:
+      - active: false
+        config:
+        - davisEvent:
+          - entityTags:
+              asdf: ""
+            entityTagsMatch: all
+            onProblemClose: false
+            types:
+            - CUSTOM_ANNOTATION

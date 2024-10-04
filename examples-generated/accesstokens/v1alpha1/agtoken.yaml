@@ -1,0 +1,13 @@
+apiVersion: accesstokens.dynatrace.crossplane.io/v1alpha1
+kind: AgToken
+metadata:
+  annotations:
+    meta.upbound.io/example-id: accesstokens/v1alpha1/agtoken
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    expirationDate: now+3d
+    name: '#name#'
+    type: ENVIRONMENT

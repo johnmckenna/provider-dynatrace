@@ -1,0 +1,25 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogOneagent
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logoneagent
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    containerTimezoneHeuristicEnabled: true
+    containersLogsDetectionEnabled: true
+    dateSearchLimitBytes: 64
+    defaultTimezone: Local time zone
+    eventLogQueryTimeoutSec: 5
+    iisdetectionEnabled: true
+    logScannerLinuxNfsEnabled: false
+    maxLgisPerEntityCount: 200
+    minBinaryDetectionLimitBytes: 512
+    monitorOwnLogsEnabled: false
+    openLogFilesDetectionEnabled: true
+    scope: environment
+    severityDetectionLimitBytes: 100
+    severityDetectionLinesLimit: 2
+    systemLogsDetectionEnabled: true

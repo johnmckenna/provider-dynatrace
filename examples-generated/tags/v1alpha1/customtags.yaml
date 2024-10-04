@@ -1,0 +1,23 @@
+apiVersion: tags.dynatrace.crossplane.io/v1alpha1
+kind: CustomTags
+metadata:
+  annotations:
+    meta.upbound.io/example-id: tags/v1alpha1/customtags
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    entitySelector: entityId("HOST-123456789000000")
+    tags:
+    - filter:
+      - context: CONTEXTLESS
+        key: KeyExampleA
+      - context: CONTEXTLESS
+        key: KeyExampleA
+        value: ValueExample1
+      - context: CONTEXTLESS
+        key: KeyExampleB
+      - context: CONTEXTLESS
+        key: KeyExampleC
+        value: ValueExample2

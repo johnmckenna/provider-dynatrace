@@ -1,0 +1,23 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogProcessing
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logprocessing
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    processorDefinition:
+    - rule: |
+        PARSE(content,"LD 'total: ' INT:total '; failed: ' INT:failed")
+        | FIELDS_ADD(failed.percentage: 100.0 * failed / total + '%')
+        | FIELDS_REMOVE(total, failed)
+    query: matchesPhrase(content, "terratest")
+    ruleName: '#name#'
+    ruleTesting:
+    - sampleLog: |-
+        ${jsonencode({
+              "content" : ""
+            })}

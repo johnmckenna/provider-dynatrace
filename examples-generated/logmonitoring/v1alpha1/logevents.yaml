@@ -1,0 +1,21 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogEvents
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logevents
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    eventTemplate:
+    - description: Created by Terraform
+      eventType: INFO
+      metadata:
+      - item:
+        - metadataKey: terraform.key
+          metadataValue: terraform.value
+      title: '{content}'
+    query: matchesPhrase(content, "terratest")
+    summary: Created by Terraform

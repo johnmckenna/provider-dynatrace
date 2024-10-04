@@ -1,0 +1,26 @@
+apiVersion: mainframe.dynatrace.crossplane.io/v1alpha1
+kind: IbmMqFilters
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mainframe/v1alpha1/ibmmqfilters
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    cicsMqQueueIdExcludes:
+    - StringA2
+    - StringB2
+    - StringC2
+    cicsMqQueueIdIncludes:
+    - StringA1
+    - StringB1
+    - StringC1
+    imsCrTrnIdIncludes:
+    - StringA5
+    - StringB5
+    - StringC5
+    imsMqQueueIdExcludes:
+    - StringA4
+    - StringB4
+    - StringC4

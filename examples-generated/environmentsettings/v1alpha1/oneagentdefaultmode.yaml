@@ -1,0 +1,11 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: OneagentDefaultMode
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/oneagentdefaultmode
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    defaultMode: FULL_STACK

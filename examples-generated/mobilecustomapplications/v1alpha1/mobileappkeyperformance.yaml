@@ -1,0 +1,15 @@
+apiVersion: mobilecustomapplications.dynatrace.crossplane.io/v1alpha1
+kind: MobileAppKeyPerformance
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mobilecustomapplications/v1alpha1/mobileappkeyperformance
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    frustratingIfReportedOrWebRequestError: true
+    scope: DEVICE_APPLICATION_METHOD-1234567890000000
+    thresholds:
+    - frustratingThresholdSeconds: 12
+      tolerableThresholdSeconds: 3

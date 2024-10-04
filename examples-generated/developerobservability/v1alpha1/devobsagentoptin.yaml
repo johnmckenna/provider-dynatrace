@@ -1,0 +1,12 @@
+apiVersion: developerobservability.dynatrace.crossplane.io/v1alpha1
+kind: DevobsAgentOptin
+metadata:
+  annotations:
+    meta.upbound.io/example-id: developerobservability/v1alpha1/devobsagentoptin
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    scope: PROCESS_GROUP-1234567890000000

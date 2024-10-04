@@ -1,0 +1,12 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogCustomAttribute
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logcustomattribute
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    key: '#name#'
+    sidebar: false

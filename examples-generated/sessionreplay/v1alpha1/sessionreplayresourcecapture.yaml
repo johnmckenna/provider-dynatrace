@@ -1,0 +1,14 @@
+apiVersion: sessionreplay.dynatrace.crossplane.io/v1alpha1
+kind: SessionReplayResourceCapture
+metadata:
+  annotations:
+    meta.upbound.io/example-id: sessionreplay/v1alpha1/sessionreplayresourcecapture
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    applicationId: environment
+    enableResourceCapturing: true
+    resourceCaptureUrlExclusionPatternList:
+    - www.google.com

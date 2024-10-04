@@ -1,0 +1,12 @@
+apiVersion: monitoredentities.dynatrace.crossplane.io/v1alpha1
+kind: CustomDevice
+metadata:
+  annotations:
+    meta.upbound.io/example-id: monitoredentities/v1alpha1/customdevice
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    customDeviceId: customDeviceId
+    displayName: customDevicename

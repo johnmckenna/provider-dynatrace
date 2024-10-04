@@ -1,0 +1,15 @@
+apiVersion: businessevents.dynatrace.crossplane.io/v1alpha1
+kind: BusinessEventsSecurityContext
+metadata:
+  annotations:
+    meta.upbound.io/example-id: businessevents/v1alpha1/businesseventssecuritycontext
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    securityContextRule:
+    - query: matchesPhrase(content, "#name#")
+      ruleName: '#name#'
+      valueSource: FIELD
+      valueSourceField: '#name#'

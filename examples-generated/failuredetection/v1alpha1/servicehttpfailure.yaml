@@ -1,0 +1,21 @@
+apiVersion: failuredetection.dynatrace.crossplane.io/v1alpha1
+kind: ServiceHTTPFailure
+metadata:
+  annotations:
+    meta.upbound.io/example-id: failuredetection/v1alpha1/servicehttpfailure
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    brokenLinks:
+    - brokenLinkDomains:
+      - www.google.com
+      http404NotFoundFailures: true
+    enabled: true
+    httpResponseCodes:
+    - clientSideErrors: 401-599
+      failOnMissingResponseCodeClientSide: true
+      failOnMissingResponseCodeServerSide: true
+      serverSideErrors: 501-599
+    serviceId: SERVICE-D892CFE7DFAB0D08

@@ -1,0 +1,15 @@
+apiVersion: mobilecustomapplications.dynatrace.crossplane.io/v1alpha1
+kind: MobileAppRequestErrors
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mobilecustomapplications/v1alpha1/mobileapprequesterrors
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    errorRules:
+    - errorRule:
+      - errorCodes: "409"
+      - errorCodes: "410"
+    scope: MOBILE_APPLICATION-1234567890000000

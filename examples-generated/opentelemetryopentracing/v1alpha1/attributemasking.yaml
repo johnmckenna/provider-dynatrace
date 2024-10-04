@@ -1,0 +1,13 @@
+apiVersion: opentelemetryopentracing.dynatrace.crossplane.io/v1alpha1
+kind: AttributeMasking
+metadata:
+  annotations:
+    meta.upbound.io/example-id: opentelemetryopentracing/v1alpha1/attributemasking
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    key: attribute.example
+    masking: MASK_ENTIRE_VALUE

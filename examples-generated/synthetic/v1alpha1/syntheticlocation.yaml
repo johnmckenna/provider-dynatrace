@@ -1,0 +1,22 @@
+apiVersion: synthetic.dynatrace.crossplane.io/v1alpha1
+kind: SyntheticLocation
+metadata:
+  annotations:
+    meta.upbound.io/example-id: synthetic/v1alpha1/syntheticlocation
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    autoUpdateChromium: true
+    availabilityLocationOutage: true
+    availabilityNodeOutage: true
+    availabilityNotificationsEnabled: true
+    city: San Francisco de Asis
+    countryCode: VE
+    deploymentType: STANDARD
+    latitude: 10.0758
+    locationNodeOutageDelayInMinutes: 3
+    longitude: -67.5442
+    name: '#name#'
+    regionCode: "04"

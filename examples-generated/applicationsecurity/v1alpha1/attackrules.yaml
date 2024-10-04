@@ -1,0 +1,17 @@
+apiVersion: applicationsecurity.dynatrace.crossplane.io/v1alpha1
+kind: AttackRules
+metadata:
+  annotations:
+    meta.upbound.io/example-id: applicationsecurity/v1alpha1/attackrules
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    attackHandling:
+    - blockingStrategy: MONITOR
+    criteria:
+    - attackType: ANY
+    enabled: true
+    metadata:
+    - comment: '#name#'

@@ -1,0 +1,15 @@
+apiVersion: mobilecustomapplications.dynatrace.crossplane.io/v1alpha1
+kind: MobileAppEnablement
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mobilecustomapplications/v1alpha1/mobileappenablement
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    rum:
+    - costAndTrafficControl: 25
+      enabled: true
+    sessionReplay:
+    - onCrash: false

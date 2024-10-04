@@ -1,0 +1,15 @@
+apiVersion: synthetic.dynatrace.crossplane.io/v1alpha1
+kind: CalculatedSyntheticMetric
+metadata:
+  annotations:
+    meta.upbound.io/example-id: synthetic/v1alpha1/calculatedsyntheticmetric
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    metric: ResourceCount
+    metricKey: calc:synthetic.browser.#name#
+    monitorIdentifier: SYNTHETIC_TEST-147CFF44DDB25C05
+    name: '#name#'

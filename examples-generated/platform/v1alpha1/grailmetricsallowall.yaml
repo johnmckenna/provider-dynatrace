@@ -1,0 +1,11 @@
+apiVersion: platform.dynatrace.crossplane.io/v1alpha1
+kind: GrailMetricsAllowall
+metadata:
+  annotations:
+    meta.upbound.io/example-id: platform/v1alpha1/grailmetricsallowall
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    allowAll: true

@@ -1,0 +1,18 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebAppKeyPerformanceXhr
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webappkeyperformancexhr
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    fallbackThresholds:
+    - frustratingFallbackThresholdSeconds: 12
+      toleratedFallbackThresholdSeconds: 3
+    kpm: VISUALLY_COMPLETE
+    scope: APPLICATION_METHOD-1234567890000000
+    thresholds:
+    - frustratingThresholdSeconds: 12
+      toleratedThresholdSeconds: 3

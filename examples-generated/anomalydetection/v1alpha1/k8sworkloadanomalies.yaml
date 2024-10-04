@@ -1,0 +1,71 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: K8SWorkloadAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/k8sworkloadanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    containerRestarts:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+        threshold: 2
+      enabled: true
+    deploymentStuck:
+    - configuration:
+      - observationPeriodInMinutes: 5
+        samplePeriodInMinutes: 4
+      enabled: true
+    highCpuThrottling:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+        threshold: 2
+      enabled: true
+    highCpuUsage:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+        threshold: 2
+      enabled: true
+    highMemoryUsage:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+        threshold: 2
+      enabled: true
+    jobFailureEvents:
+    - enabled: true
+    notAllPodsReady:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+      enabled: true
+    oomKills:
+    - enabled: true
+    pendingPods:
+    - configuration:
+      - observationPeriodInMinutes: 16
+        samplePeriodInMinutes: 11
+        threshold: 2
+      enabled: true
+    podBackoffEvents:
+    - enabled: true
+    podEvictionEvents:
+    - enabled: true
+    podPreemptionEvents:
+    - enabled: true
+    podStuckInTerminating:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+      enabled: true
+    scope: environment
+    workloadWithoutReadyPods:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+      enabled: true

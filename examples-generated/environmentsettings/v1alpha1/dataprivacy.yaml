@@ -1,0 +1,20 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: DataPrivacy
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/dataprivacy
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    applicationId: environment
+    dataCollection:
+    - optInModeEnabled: true
+    doNotTrack:
+    - complyWithDoNotTrack: false
+    masking:
+    - personalDataUriMaskingEnabled: true
+      userActionMaskingEnabled: true
+    userTracking:
+    - persistentCookieEnabled: true

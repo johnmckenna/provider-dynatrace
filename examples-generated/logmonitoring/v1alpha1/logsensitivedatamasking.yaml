@@ -1,0 +1,22 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogSensitiveDataMasking
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logsensitivedatamasking
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    masking:
+    - expression: FOO
+      type: SHA1
+    matchers:
+    - matcher:
+      - attribute: container.name
+        operator: MATCHES
+        values:
+        - jlkjk
+    name: '#name#'
+    scope: environment

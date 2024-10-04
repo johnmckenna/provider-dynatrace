@@ -1,0 +1,22 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: UserSessionMetrics
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/usersessionmetrics
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    filters:
+    - filter:
+      - fieldName: useraction.application
+        operator: EQUALS
+        value: www.terraform.io/
+      - fieldName: useraction.name
+        operator: EQUALS
+        value: Loading of page /
+    metricKey: uscm.TerraformTest
+    value:
+    - type: COUNTER

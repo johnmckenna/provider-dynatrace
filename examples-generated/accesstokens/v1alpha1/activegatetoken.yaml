@@ -1,0 +1,12 @@
+apiVersion: accesstokens.dynatrace.crossplane.io/v1alpha1
+kind: ActivegateToken
+metadata:
+  annotations:
+    meta.upbound.io/example-id: accesstokens/v1alpha1/activegatetoken
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    authTokenEnforcementManuallyEnabled: false
+    expiringTokenNotificationsEnabled: true

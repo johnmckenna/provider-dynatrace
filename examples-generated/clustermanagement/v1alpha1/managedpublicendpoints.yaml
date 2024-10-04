@@ -1,0 +1,16 @@
+apiVersion: clustermanagement.dynatrace.crossplane.io/v1alpha1
+kind: ManagedPublicEndpoints
+metadata:
+  annotations:
+    meta.upbound.io/example-id: clustermanagement/v1alpha1/managedpublicendpoints
+  labels:
+    testing.upbound.io/example-name: Test
+  name: test
+spec:
+  forProvider:
+    additionalWebUiAddresses:
+    - https://www.webuiaddress1.com
+    - https://www.webuiaddress2.com
+    beaconForwarderAddress: https://www.beaconforwarderaddress.com:443
+    cdnAddress: https://www.cdnaddress.com
+    webUiAddress: https://www.webuiaddress.com

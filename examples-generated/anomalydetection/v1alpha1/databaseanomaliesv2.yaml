@@ -1,0 +1,40 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: DatabaseAnomaliesV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/databaseanomaliesv2
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    databaseConnections:
+    - enabled: true
+      maxFailedConnects: 5
+      timePeriod: 5
+    failureRate:
+    - detectionMode: fixed
+      enabled: true
+      fixedDetection:
+      - overAlertingProtection:
+        - minutesAbnormalState: 1
+          requestsPerMinute: 10
+        sensitivity: low
+        threshold: 0
+    loadDrops:
+    - enabled: false
+    loadSpikes:
+    - enabled: false
+    responseTime:
+    - detectionMode: fixed
+      enabled: true
+      fixedDetection:
+      - overAlertingProtection:
+        - minutesAbnormalState: 1
+          requestsPerMinute: 15
+        responseTimeAll:
+        - degradationMilliseconds: 15
+        responseTimeSlowest:
+        - slowestDegradationMilliseconds: 23
+        sensitivity: high
+    scope: environment

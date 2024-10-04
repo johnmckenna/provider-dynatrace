@@ -1,0 +1,15 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: LimitOutboundConnections
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/limitoutboundconnections
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    allowedOutboundConnections:
+    - enforced: true
+      hostList:
+      - www.dynatrace.com
+      - www.google.com

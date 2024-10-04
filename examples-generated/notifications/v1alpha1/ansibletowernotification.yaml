@@ -1,0 +1,35 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: AnsibleTowerNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/ansibletowernotification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    active: false
+    customMessage: some-custom-message
+    insecure: true
+    jobTemplateUrl: https://localhost/#/templates/job_template/999
+    name: '#name#'
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    profile: ${dynatrace_alerting.Default.id}
+    username: foo
+
+---
+
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: Alerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/ansibletowernotification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    name: '#name#'

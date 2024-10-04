@@ -1,0 +1,13 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: FrequentIssues
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/frequentissues
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    detectApps: true
+    detectInfra: true
+    detectTxn: true

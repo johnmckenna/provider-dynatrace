@@ -1,0 +1,12 @@
+apiVersion: extensions.dynatrace.crossplane.io/v1alpha1
+kind: ExtensionExecutionRemote
+metadata:
+  annotations:
+    meta.upbound.io/example-id: extensions/v1alpha1/extensionexecutionremote
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    performanceProfile: DEFAULT
+    scope: ENVIRONMENT_ACTIVE_GATE-1234567890000000

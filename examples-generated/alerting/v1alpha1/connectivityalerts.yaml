@@ -1,0 +1,12 @@
+apiVersion: alerting.dynatrace.crossplane.io/v1alpha1
+kind: ConnectivityAlerts
+metadata:
+  annotations:
+    meta.upbound.io/example-id: alerting/v1alpha1/connectivityalerts
+  labels:
+    testing.upbound.io/example-name: PROCESS_GROUP-1234567890000000
+  name: process-group-1234567890000000
+spec:
+  forProvider:
+    connectivityAlerts: false
+    processGroupId: PROCESS_GROUP-1234567890000000

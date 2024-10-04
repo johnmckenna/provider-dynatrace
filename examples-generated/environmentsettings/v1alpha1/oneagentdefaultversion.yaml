@@ -1,0 +1,11 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: OneagentDefaultVersion
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/oneagentdefaultversion
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    defaultVersion: latest

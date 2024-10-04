@@ -1,0 +1,14 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: PgAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/pganomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    availability:
+    - method: "OFF"
+      minimumThreshold: 0
+    pgId: PROCESS_GROUP-AA665B81183B0D7A

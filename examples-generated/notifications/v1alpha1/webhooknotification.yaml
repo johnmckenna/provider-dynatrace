@@ -1,0 +1,69 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: WebhookNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/webhooknotification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    active: false
+    headers:
+    - header:
+      - name: http-header-name-01
+        value: http-header-value-01
+      - name: http-header-name-02
+        secretValueSecretRef:
+          key: example-key
+          name: example-secret
+          namespace: upbound-system
+      - name: http-header-name-03
+        secretValueSecretRef:
+          key: example-key
+          name: example-secret
+          namespace: upbound-system
+      - name: http-header-name-04
+        secretValueSecretRef:
+          key: example-key
+          name: example-secret
+          namespace: upbound-system
+      - name: http-header-name-05
+        secretValueSecretRef:
+          key: example-key
+          name: example-secret
+          namespace: upbound-system
+      - name: http-header-name-06
+        secretValueSecretRef:
+          key: example-key
+          name: example-secret
+          namespace: upbound-system
+    insecure: true
+    name: '#name#'
+    notifyClosedProblems: true
+    notifyEventMerges: true
+    oauth2Credentials:
+    - accessTokenUrl: https://www.google.com
+      clientId: terraform
+      clientSecretSecretRef:
+        key: example-key
+        name: example-secret
+        namespace: upbound-system
+    payload: web-hook-payload
+    profile: ${dynatrace_alerting.Default.id}
+    url: https://webhook.site/#name#
+    useOauth2: true
+
+---
+
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: Alerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/webhooknotification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    name: '#name#'

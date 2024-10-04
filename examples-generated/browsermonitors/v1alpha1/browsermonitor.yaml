@@ -1,0 +1,103 @@
+apiVersion: browsermonitors.dynatrace.crossplane.io/v1alpha1
+kind: BrowserMonitor
+metadata:
+  annotations:
+    meta.upbound.io/example-id: browsermonitors/v1alpha1/browsermonitor
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    anomalyDetection:
+    - loadingTimeThresholds:
+      - enabled: true
+      outageHandling:
+      - globalOutage: true
+        globalOutagePolicy:
+        - consecutiveRuns: 1
+        retryOnError: true
+    frequency: 15
+    keyPerformanceMetrics:
+    - loadActionKpm: VISUALLY_COMPLETE
+      xhrActionKpm: VISUALLY_COMPLETE
+    locations:
+    - GEOLOCATION-B4B9167CAAA88F6A
+    - GEOLOCATION-03E96F97A389F96A
+    manuallyAssignedApps:
+    - APPLICATION-EA7C4B59F27D43EB
+    name: '#name#'
+    script:
+    - configuration:
+      - bandwidth:
+        - networkType: GPRS
+        bypassCsp: true
+        device:
+        - name: Apple iPhone 8
+          orientation: landscape
+        headers:
+        - header:
+          - name: kjh
+            value: kjh
+        ignoredErrorCodes:
+        - statusCodes: "400"
+        javascriptSetttings:
+        - timeoutSettings:
+          - actionLimit: 3
+            totalTimeout: 100
+          visuallyCompleteOptions:
+          - imageSizeThreshold: 0
+            inactivityTimeout: 0
+            mutationTimeout: 0
+        userAgent: Mozilla
+      events:
+      - event:
+        - description: Loading of "https://www.orf.at"
+          navigate:
+          - authentication:
+            - creds: CREDENTIALS_VAULT-26F62024BC3ABBCF
+              type: http_authentication
+            url: https://www.orf.at
+            wait:
+            - waitFor: page_complete
+        - description: jhjhjh
+          navigate:
+          - authentication:
+            - creds: CREDENTIALS_VAULT-26F62024BC3ABBCF
+              type: http_authentication
+            url: https://www.orf.at
+            validate:
+            - validation:
+              - match: kkl
+                regex: true
+                target:
+                - window: k
+                type: text_match
+            wait:
+            - timeout: 60000
+              validation:
+              - match: kjkj
+                target:
+                - locators:
+                  - locator:
+                    - type: css
+                      value: jjj
+                type: element_match
+              waitFor: validation
+        - click:
+          - button: 0
+            validate:
+            - validation:
+              - type: text_match
+            wait:
+            - waitFor: page_complete
+          description: fvf
+        - description: jsfoo
+          javascript:
+          - code: |
+              let x = 3;
+              for (var i = 0; i < x; x++) {
+                  console.log("asdf");
+              }
+            wait:
+            - waitFor: page_complete
+      type: clickpath
