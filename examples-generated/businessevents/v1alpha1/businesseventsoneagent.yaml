@@ -1,0 +1,51 @@
+apiVersion: businessevents.dynatrace.crossplane.io/v1alpha1
+kind: BusinessEventsOneagent
+metadata:
+  annotations:
+    meta.upbound.io/example-id: businessevents/v1alpha1/businesseventsoneagent
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    event:
+    - category:
+      - sourceType: request.path
+      data:
+      - eventDataFieldComplex:
+        - name: rsbody
+          source:
+          - path: '*'
+            sourceType: response.body
+        - name: req content-type
+          source:
+          - path: content-type
+            sourceType: request.headers
+        - name: technology
+          source:
+          - source: java
+            sourceType: constant.string
+        - name: rqbody
+          source:
+          - path: '*'
+            sourceType: request.body
+        - name: res content-type
+          source:
+          - path: content-type
+            sourceType: response.headers
+      provider:
+      - source: www.easytravel.com
+        sourceType: constant.string
+      type:
+      - source: com.easytravel.search-journey
+        sourceType: constant.string
+    ruleName: '#name#'
+    scope: environment
+    triggers:
+    - trigger:
+      - caseSensitive: false
+        source:
+        - dataSource: request.path
+        type: STARTS_WITH
+        value: /easytravel/rest/journeys

@@ -1,0 +1,17 @@
+apiVersion: opentelemetryopentracing.dynatrace.crossplane.io/v1alpha1
+kind: SpanCaptureRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: opentelemetryopentracing/v1alpha1/spancapturerule
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    action: IGNORE
+    matches:
+    - match:
+      - comparison: EQUALS
+        source: SPAN_NAME
+        value: foo
+    name: '#name#'

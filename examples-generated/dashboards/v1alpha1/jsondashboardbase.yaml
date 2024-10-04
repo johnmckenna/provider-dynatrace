@@ -1,0 +1,10 @@
+apiVersion: dashboards.dynatrace.crossplane.io/v1alpha1
+kind: JSONDashboardBase
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dashboards/v1alpha1/jsondashboardbase
+  labels:
+    testing.upbound.io/example-name: dashboard-a
+  name: dashboard-a
+spec:
+  forProvider: {}

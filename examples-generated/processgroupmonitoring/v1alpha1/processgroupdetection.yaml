@@ -1,0 +1,24 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessGroupDetection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/processgroupdetection
+  labels:
+    testing.upbound.io/example-name: _47d495a8-5577-436d-a3b3-777924c2d103
+  name: -47d495a8-5577-436d-a3b3-777924c2d103
+spec:
+  forProvider:
+    enabled: true
+    groupExtraction:
+    - delimiter:
+      - removeIds: true
+      property: COMMAND_LINE_ARGS
+      standaloneRule: false
+    instanceExtraction:
+    - delimiter:
+      - removeIds: true
+      property: AWS_ECS_FAMILY
+    processDetection:
+    - containedString: -config
+      property: COMMAND_LINE_ARGS
+      restrictToProcessType: PROCESS_TYPE_APACHE_HTTPD

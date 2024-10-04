@@ -1,0 +1,12 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessGroupRum
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/processgrouprum
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enable: false
+    processGroupId: PROCESS_GROUP-1234567890000000

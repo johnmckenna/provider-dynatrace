@@ -1,0 +1,12 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: Nettracer
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/nettracer
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    netTracer: true
+    scope: HOST-1234567890000000

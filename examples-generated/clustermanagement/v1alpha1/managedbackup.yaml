@@ -1,0 +1,19 @@
+apiVersion: clustermanagement.dynatrace.crossplane.io/v1alpha1
+kind: ManagedBackup
+metadata:
+  annotations:
+    meta.upbound.io/example-id: clustermanagement/v1alpha1/managedbackup
+  labels:
+    testing.upbound.io/example-name: Test
+  name: test
+spec:
+  forProvider:
+    bandwidthLimitMbits: 240
+    cassandraScheduledTime: 22
+    datacenter: ""
+    enabled: true
+    includeLm20Data: true
+    includeRumData: true
+    includeTsMetricData: true
+    maxEsSnapshotsToClean: 25
+    pauseBackups: false

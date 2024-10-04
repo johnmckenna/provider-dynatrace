@@ -1,0 +1,17 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: MobileAppCrashRate
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/mobileappcrashrate
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    applicationId: MOBILE_APPLICATION-1234567890000000
+    crashRateIncrease:
+    - crashRateIncreaseFixed:
+      - absoluteCrashRate: 25
+        concurrentUsers: 200
+      detectionMode: fixed
+      enabled: true

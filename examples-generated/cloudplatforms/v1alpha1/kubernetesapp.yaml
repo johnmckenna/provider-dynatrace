@@ -1,0 +1,13 @@
+apiVersion: cloudplatforms.dynatrace.crossplane.io/v1alpha1
+kind: KubernetesApp
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cloudplatforms/v1alpha1/kubernetesapp
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    kubernetesAppOptions:
+    - enableKubernetesApp: true
+    scope: environment

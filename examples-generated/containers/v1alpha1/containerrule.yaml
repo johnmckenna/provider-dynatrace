@@ -1,0 +1,15 @@
+apiVersion: containers.dynatrace.crossplane.io/v1alpha1
+kind: ContainerRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: containers/v1alpha1/containerrule
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    mode: MONITORING_ON
+    operator: NOT_CONTAINS
+    property: CONTAINER_NAME
+    value: Terraform

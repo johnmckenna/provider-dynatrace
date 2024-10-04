@@ -1,0 +1,63 @@
+apiVersion: failuredetection.dynatrace.crossplane.io/v1alpha1
+kind: FailureDetectionRules
+metadata:
+  annotations:
+    meta.upbound.io/example-id: failuredetection/v1alpha1/failuredetectionrules
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    conditions:
+    - condition:
+      - attribute: SERVICE_NAME
+        predicate:
+        - caseSensitive: true
+          predicateType: STRING_EQUALS
+          textValues:
+          - Terraform
+    enabled: true
+    name: ""
+    parameterId: ${dynatrace_failure_detection_parameters.parameter.id}
+
+---
+
+apiVersion: failuredetection.dynatrace.crossplane.io/v1alpha1
+kind: FailureDetectionParameters
+metadata:
+  annotations:
+    meta.upbound.io/example-id: failuredetection/v1alpha1/failuredetectionrules
+  labels:
+    testing.upbound.io/example-name: parameter
+  name: parameter
+spec:
+  forProvider:
+    brokenLinks:
+    - http404NotFoundFailures: false
+    description: Created by Terraform
+    exceptionRules:
+    - customErrorRules:
+      - customErrorRule:
+        - condition:
+          - compareOperationType: STRING_EXISTS
+          requestAttribute: 195b205c-5c01-4563-b29b-e33caf24ec7d
+      customHandledExceptions:
+      - customHandledException:
+        - classPattern: ClassPattern
+          messagePattern: ExceptionPattern
+      ignoreAllExceptions: false
+      ignoreSpanFailureDetection: true
+      ignoredExceptions:
+      - customHandledException:
+        - classPattern: ClassPattern
+          messagePattern: ExceptionPattern
+      successForcingExceptions:
+      - customHandledException:
+        - classPattern: ClassPattern
+          messagePattern: ExceptionPattern
+    httpResponseCodes:
+    - clientSideErrors: 400-599
+      failOnMissingResponseCodeClientSide: false
+      failOnMissingResponseCodeServerSide: true
+      serverSideErrors: 500-599
+    name: '#name#'

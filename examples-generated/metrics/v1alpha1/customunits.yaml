@@ -1,0 +1,14 @@
+apiVersion: metrics.dynatrace.crossplane.io/v1alpha1
+kind: CustomUnits
+metadata:
+  annotations:
+    meta.upbound.io/example-id: metrics/v1alpha1/customunits
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    description: Created by Terraform
+    name: '#name#'
+    pluralName: TerraformUnits
+    symbol: T/u

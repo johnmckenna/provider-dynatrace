@@ -1,0 +1,31 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessgroupNaming
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/processgroupnaming
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    conditions:
+    - condition:
+      - key:
+        - attribute: PROCESS_GROUP_TECHNOLOGY
+          type: STATIC
+        tech:
+        - negate: false
+          operator: EQUALS
+          value:
+          - type: ADO_NET
+      - processMetadata:
+        - attribute: PROCESS_GROUP_PREDEFINED_METADATA
+          dynamicKey: COMMAND_LINE_ARGS
+        string:
+        - caseSensitive: true
+          negate: false
+          operator: CONTAINS
+          value: -config
+    enabled: true
+    format: '{ProcessGroup:DetectedName} {ProcessGroup:CommandLineArgs}'
+    name: '#name#'

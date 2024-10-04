@@ -1,0 +1,29 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: K8SNodeAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/k8snodeanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    cpuRequestsSaturation:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+        threshold: 95
+      enabled: true
+    memoryRequestsSaturation:
+    - enabled: false
+    nodeProblematicCondition:
+    - enabled: false
+    podsSaturation:
+    - configuration:
+      - observationPeriodInMinutes: 6
+        samplePeriodInMinutes: 4
+        threshold: 95
+      enabled: true
+    readinessIssues:
+    - enabled: false
+    scope: environment

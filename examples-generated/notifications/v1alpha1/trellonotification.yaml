@@ -1,0 +1,37 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: TrelloNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/trellonotification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    active: false
+    applicationKey: trello-application-key
+    authorizationTokenSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    boardId: trello-board-id
+    description: trello-description
+    listId: trello-list-id
+    name: '#name#'
+    profile: ${dynatrace_alerting.Default.id}
+    resolvedListId: trello-resolved-list-id
+    text: trello-text
+
+---
+
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: Alerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/trellonotification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    name: '#name#'

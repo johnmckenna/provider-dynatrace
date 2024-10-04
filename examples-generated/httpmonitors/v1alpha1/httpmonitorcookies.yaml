@@ -1,0 +1,17 @@
+apiVersion: httpmonitors.dynatrace.crossplane.io/v1alpha1
+kind: HTTPMonitorCookies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: httpmonitors/v1alpha1/httpmonitorcookies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    cookies:
+    - cookie:
+      - domain: google.com
+        name: SampleName
+        value: SampleValue
+    enabled: true
+    scope: HTTP_CHECK-1234567890000000

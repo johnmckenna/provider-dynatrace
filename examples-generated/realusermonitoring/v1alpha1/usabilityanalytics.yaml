@@ -1,0 +1,11 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: UsabilityAnalytics
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/usabilityanalytics
+  labels:
+    testing.upbound.io/example-name: test
+  name: test
+spec:
+  forProvider:
+    detectRageClicks: true

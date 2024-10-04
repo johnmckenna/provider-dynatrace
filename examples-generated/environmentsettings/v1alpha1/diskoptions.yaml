@@ -1,0 +1,18 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: DiskOptions
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/diskoptions
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    disableNfsDiskMonitoring: false
+    exclusions:
+    - exclusion:
+      - filesystem: ntfs
+        mountpoint: C:\
+        os: OS_TYPE_WINDOWS
+    nfsShowAll: true
+    scope: HOST-1234567890000000

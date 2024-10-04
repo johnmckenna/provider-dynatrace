@@ -1,0 +1,15 @@
+apiVersion: extensions.dynatrace.crossplane.io/v1alpha1
+kind: ExtensionExecutionController
+metadata:
+  annotations:
+    meta.upbound.io/example-id: extensions/v1alpha1/extensionexecutioncontroller
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    ingestActive: false
+    performanceProfile: DEFAULT
+    scope: environment
+    statsdActive: false

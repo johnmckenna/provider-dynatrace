@@ -1,0 +1,20 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogStorage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logstorage
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    matchers:
+    - matcher:
+      - attribute: container.name
+        operator: MATCHES
+        values:
+        - TerraformTest
+    name: '#name#'
+    scope: HOST_GROUP-1234567890000000
+    sendToStorage: false

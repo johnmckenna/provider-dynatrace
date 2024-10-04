@@ -1,0 +1,13 @@
+apiVersion: processmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessVisibility
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processmonitoring/v1alpha1/processvisibility
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    maxProcesses: 80
+    scope: environment

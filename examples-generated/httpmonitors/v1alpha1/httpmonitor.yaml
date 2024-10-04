@@ -1,0 +1,228 @@
+apiVersion: httpmonitors.dynatrace.crossplane.io/v1alpha1
+kind: HTTPMonitor
+metadata:
+  annotations:
+    meta.upbound.io/example-id: httpmonitors/v1alpha1/httpmonitor
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    anomalyDetection:
+    - loadingTimeThresholds:
+      - {}
+      outageHandling:
+      - globalOutage: true
+        globalOutagePolicy:
+        - consecutiveRuns: 1
+    frequency: 1
+    locations:
+    - GEOLOCATION-F3E06A526BE3B4C4
+    name: '#name#'
+    script:
+    - request:
+      - configuration:
+        - acceptAnyCertificate: true
+          followRedirects: true
+          headers:
+          - header:
+            - name: Authorization
+              value: Bearer {CREDENTIALS_VAULT-93C49382ACCA047B|token}
+            - name: Accept
+              value: application/json
+        description: getOffice365ActiveUserCounts
+        method: GET
+        postProcessing: "if (response.getStatusCode() != 200) {\n    api.fail(\"HTTP
+          error: \" + response.getStatusCode());\n}\nvar register = function(obj,
+          key, value) {\n  if (key in obj) {\n      return;\n  }\n  value = value.trim();\n
+          \ if (value.length === 0) {\n      return;\n  }\n  var iValue = parseInt(value);\n
+          \ if (isNaN(iValue)) {\n      return;\n  }\n  obj[key] = iValue;\n};\nvar
+          lines = response.getResponseBody().trim().split(\"\\n\");\nvar idx = 0;\n
+          \       \nvar counts = {};\nfor (idx = lines.length - 1; idx >= 0; idx--)
+          {\n    var line = lines[idx].trim();\n    if (line.length === 0) {\n        continue;\n
+          \   }\n    if (line.startsWith(\"Report Refresh Date\")) {\n        continue;\n
+          \   }\n    var values = line.split(\",\");\n    register(counts, \"office365\",
+          values[1]);\n    register(counts, \"exchange\", values[2]);\n    register(counts,
+          \"onedrive\", values[3]);\n    register(counts, \"sharepoint\", values[4]);\n
+          \   register(counts, \"skype\", values[5]);\n    register(counts, \"yammer\",
+          values[6]);\n    register(counts, \"teams\", values[7]);\n}\n        \nif
+          (\"office365\" in counts) api.setValue(\"office365\", counts.office365);\nif
+          (\"exchange\" in counts) api.setValue(\"exchange\", counts.exchange);\nif
+          (\"onedrive\" in counts) api.setValue(\"onedrive\", counts.onedrive);\nif
+          (\"sharepoint\" in counts) api.setValue(\"sharepoint\", counts.sharepoint);\nif
+          (\"skype\" in counts) api.setValue(\"skype\", counts.skype);\nif (\"yammer\"
+          in counts) api.setValue(\"yammer\", counts.yammer);\nif (\"teams\" in counts)
+          api.setValue(\"teams\", counts.teams);\n"
+        url: https://graph.microsoft.com/v1.0/reports/getOffice365ActiveUserCounts(period='D7')
+      - configuration:
+        - acceptAnyCertificate: true
+          followRedirects: true
+          headers:
+          - header:
+            - name: Authorization
+              value: Bearer {CREDENTIALS_VAULT-93C49382ACCA047B|token}
+        description: getMailboxUsageQuotaStatusMailboxCounts
+        method: GET
+        postProcessing: "if (response.getStatusCode() != 200) {\n    api.fail(\"HTTP
+          error: \" + response.getStatusCode());\n}\nvar register = function(obj,
+          key, value) {\n  if (key in obj) {\n      return;\n  }\n  value = value.trim();\n
+          \ if (value.length === 0) {\n      return;\n  }\n  var iValue = parseInt(value);\n
+          \ if (isNaN(iValue)) {\n      return;\n  }\n  obj[key] = iValue;\n};\nvar
+          lines = response.getResponseBody().trim().split(\"\\n\");\nvar idx = 0;\n
+          \       \nvar counts = {};\nfor (idx = lines.length - 1; idx >= 0; idx--)
+          {\n    var line = lines[idx].trim();\n    if (line.length === 0) {\n        continue;\n
+          \   }\n    if (line.startsWith(\"Report Refresh Date\")) {\n        continue;\n
+          \   }\n    var values = line.split(\",\");\n    register(counts, \"under_limit\",
+          values[1]);\n    register(counts, \"warning_issued\", values[2]);\n    register(counts,
+          \"send_prohibited\", values[3]);\n    register(counts, \"send_receive_prohibited\",
+          values[4]);\n    register(counts, \"indeterminate\", values[5]);\n}\n        \napi.setValue(\"under_limit\",
+          (\"under_limit\" in counts) ? counts.under_limit : 0);\napi.setValue(\"warning_issued\",
+          (\"warning_issued\" in counts) ? counts.warning_issued : 0);\napi.setValue(\"send_prohibited\",
+          (\"send_prohibited\" in counts) ? counts.send_prohibited : 0);\napi.setValue(\"send_receive_prohibited\",
+          (\"send_receive_prohibited\" in counts) ? counts.send_receive_prohibited
+          : 0);\napi.setValue(\"indeterminate\", (\"indeterminate\" in counts) ? counts.send_receive_prohibited
+          : 0);\n"
+        url: https://graph.microsoft.com/v1.0/reports/getMailboxUsageQuotaStatusMailboxCounts(period='D7')
+        validation:
+        - rule:
+          - type: httpStatusesList
+            value: '>=400'
+      - configuration:
+        - acceptAnyCertificate: true
+          followRedirects: true
+          headers:
+          - header:
+            - name: Authorization
+              value: Bearer {CREDENTIALS_VAULT-93C49382ACCA047B|token}
+        description: getMailboxUsageStorage
+        method: GET
+        postProcessing: "if (response.getStatusCode() != 200) {\n    api.fail(\"HTTP
+          error: \" + response.getStatusCode());\n}\nvar register = function(obj,
+          key, value) {\n  if (key in obj) {\n      return;\n  }\n  value = value.trim();\n
+          \ if (value.length === 0) {\n      return;\n  }\n  var iValue = parseInt(value);\n
+          \ if (isNaN(iValue)) {\n      return;\n  }\n  obj[key] = iValue;\n};\nvar
+          lines = response.getResponseBody().trim().split(\"\\n\");\nvar idx = 0;\n
+          \       \nvar counts = {};\nfor (idx = lines.length - 1; idx >= 0; idx--)
+          {\n    var line = lines[idx].trim();\n    if (line.length === 0) {\n        continue;\n
+          \   }\n    if (line.startsWith(\"Report Refresh Date\")) {\n        continue;\n
+          \   }\n    var values = line.split(\",\");\n    register(counts, \"storage_used\",
+          values[1]);\n}\n        \napi.setValue(\"storage_used\", (\"storage_used\"
+          in counts) ? counts.storage_used / 1024 / 1024 / 1024 : 0);\napi.setValue(\"storage_used_mailbox\",
+          (\"storage_used\" in counts) ? counts.storage_used / 1024 / 1024 / 1024
+          : 0);\n"
+        url: https://graph.microsoft.com/v1.0/reports/getMailboxUsageStorage(period='D7')
+        validation:
+        - rule:
+          - type: httpStatusesList
+            value: '>=400'
+      - configuration:
+        - acceptAnyCertificate: true
+          followRedirects: true
+          headers:
+          - header:
+            - name: Authorization
+              value: Bearer {CREDENTIALS_VAULT-93C49382ACCA047B|token}
+        description: getSharePointSiteUsageStorage
+        method: GET
+        postProcessing: "if (response.getStatusCode() != 200) {\n    api.fail(\"HTTP
+          error: \" + response.getStatusCode());\n}\nvar register = function(obj,
+          key, value) {\n  if (key in obj) {\n      return;\n  }\n  value = value.trim();\n
+          \ if (value.length === 0) {\n      return;\n  }\n  var iValue = parseInt(value);\n
+          \ if (isNaN(iValue)) {\n      return;\n  }\n  obj[key] = iValue;\n};\nvar
+          lines = response.getResponseBody().trim().split(\"\\n\");\nvar idx = 0;\n
+          \       \nvar counts = {};\nfor (idx = lines.length - 1; idx >= 0; idx--)
+          {\n    var line = lines[idx].trim();\n    if (line.length === 0) {\n        continue;\n
+          \   }\n    if (line.startsWith(\"Report Refresh Date\")) {\n        continue;\n
+          \   }\n    if (!line.includes(\",All,\")) {\n        continue;\n    }\n
+          \   var values = line.split(\",\");\n    register(counts, \"storage_used\",
+          values[2]);\n}\n        \napi.setValue(\"storage_used_sharepoint\", (\"storage_used\"
+          in counts) ? counts.storage_used / 1024 / 1024 / 1024 : 0);\n"
+        url: https://graph.microsoft.com/v1.0/reports/getSharePointSiteUsageStorage(period='D7')
+        validation:
+        - rule:
+          - type: httpStatusesList
+            value: '>=400'
+      - configuration:
+        - acceptAnyCertificate: true
+          followRedirects: true
+          headers:
+          - header:
+            - name: Authorization
+              value: Bearer {CREDENTIALS_VAULT-93C49382ACCA047B|token}
+        description: getOneDriveUsageStorage
+        method: GET
+        postProcessing: "if (response.getStatusCode() != 200) {\n    api.fail(\"HTTP
+          error: \" + response.getStatusCode());\n}\nvar register = function(obj,
+          key, value) {\n  if (key in obj) {\n      return;\n  }\n  value = value.trim();\n
+          \ if (value.length === 0) {\n      return;\n  }\n  var iValue = parseInt(value);\n
+          \ if (isNaN(iValue)) {\n      return;\n  }\n  obj[key] = iValue;\n};\nvar
+          lines = response.getResponseBody().trim().split(\"\\n\");\nvar idx = 0;\n
+          \       \nvar counts = {};\nfor (idx = lines.length - 1; idx >= 0; idx--)
+          {\n    var line = lines[idx].trim();\n    if (line.length === 0) {\n        continue;\n
+          \   }\n    if (line.startsWith(\"Report Refresh Date\")) {\n        continue;\n
+          \   }\n    if (!line.includes(\",All,\")) {\n        continue;\n    }\n
+          \   var values = line.split(\",\");\n    register(counts, \"storage_used\",
+          values[2]);\n}\n        \napi.setValue(\"storage_used_onedrive\", (\"storage_used\"
+          in counts) ? counts.storage_used / 1024 / 1024 / 1024 : 0);\n"
+        url: https://graph.microsoft.com/v1.0/reports/getOneDriveUsageStorage(period='D7')
+        validation:
+        - rule:
+          - type: httpStatusesList
+            value: '>=400'
+      - configuration:
+        - acceptAnyCertificate: true
+          followRedirects: true
+          headers:
+          - header:
+            - name: Authorization
+              value: Bearer {CREDENTIALS_VAULT-CE4EA27BA94C9061|token}
+            - name: Accept
+              value: application/json
+        description: ServiceComms/CurrentStatus
+        method: GET
+        postProcessing: "var healthyStates = [\n    \"PostIncidentReviewPublished\",\n
+          \   \"ServiceRestored\",\n    \"ServiceOperational\",\n    \"FalsePositive\"\n];\n/*
+          Work load status per https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-service-communications-api-reference#status-definitions\nInvestigating\nServiceDegradation\nServiceInterruption\nRestoringService\nExtendedRecovery\nInvestigationSuspended\nServiceRestored\nFalsePositive\nPostIncidentReportPublished\nServiceOperational\n*/\n
+          \       \njson = JSON.parse(response.getResponseBody());\n        \nvar
+          payload = \"office365.service.status.queried 1\";\njson.value.forEach(element
+          => {\n    payload = payload + \"\\noffice365.service.status,workload=\"
+          + element.Workload + \",status=\" + element.Status + \",healthy=\" + (healthyStates.indexOf(element.Status)
+          >= 0) + \" 1\";\n});\napi.setValue(\"service_status\", payload);\n"
+        url: https://manage.office.com/api/v1.0/{CREDENTIALS_VAULT-1A8E917381883F54|token}/ServiceComms/CurrentStatus
+        validation:
+        - rule:
+          - type: httpStatusesList
+            value: '>=400'
+      - body: |
+          office365.user.count,product=sharepoint {sharepoint}
+          office365.user.count,product=onedrive {onedrive}
+          office365.user.count,product=yammer {yammer}
+          office365.user.count,product=office365 {office365}
+          office365.user.count,product=skype {skype}
+          office365.user.count,product=exchange {exchange}
+          office365.user.count,product=teams {teams}
+          office365.mailbox.quota.count,category=under_limit {under_limit}
+          office365.mailbox.quota.count,category=warning_issued {warning_issued}
+          office365.mailbox.quota.count,category=send_prohibited {send_prohibited}
+          office365.mailbox.quota.count,category=send_receive_prohibited {send_receive_prohibited}
+          office365.mailbox.quota.count,category=indeterminate {indeterminate}
+          office365.storage.used.bytes,site=outlook {storage_used_mailbox}
+          office365.storage.used.bytes,site=sharepoint {storage_used_sharepoint}
+          office365.storage.used.bytes,site=onedrive {storage_used_onedrive}
+          {service_status}
+        configuration:
+        - acceptAnyCertificate: true
+          followRedirects: true
+          headers:
+          - header:
+            - name: Content-Type
+              value: text/plain
+            - name: Authorization
+              value: Api-Token {CREDENTIALS_VAULT-55F1E51535993619|token}
+        description: api/v2/metrics/ingest
+        method: POST
+        url: https://siz65484.live.dynatrace.com/api/v2/metrics/ingest
+        validation:
+        - rule:
+          - type: httpStatusesList
+            value: '>=400'

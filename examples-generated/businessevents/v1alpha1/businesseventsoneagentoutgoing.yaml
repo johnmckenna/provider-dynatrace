@@ -1,0 +1,36 @@
+apiVersion: businessevents.dynatrace.crossplane.io/v1alpha1
+kind: BusinessEventsOneagentOutgoing
+metadata:
+  annotations:
+    meta.upbound.io/example-id: businessevents/v1alpha1/businesseventsoneagentoutgoing
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    event:
+    - category:
+      - source: Category 1
+        sourceType: constant.string
+      data:
+      - eventDataFieldComplex:
+        - name: Field 1
+          source:
+          - path: Path 1
+            sourceType: request.body
+      provider:
+      - source: Provider 1
+        sourceType: constant.string
+      type:
+      - source: Type 1
+        sourceType: constant.string
+    ruleName: '#name#'
+    scope: environment
+    triggers:
+    - trigger:
+      - caseSensitive: false
+        source:
+        - dataSource: request.path
+        type: EQUALS
+        value: Terraform

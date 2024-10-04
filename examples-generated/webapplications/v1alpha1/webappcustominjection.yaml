@@ -1,0 +1,16 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebAppCustomInjection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webappcustominjection
+  labels:
+    testing.upbound.io/example-name: APPLICATION-1234567890000000
+  name: application-1234567890000000
+spec:
+  forProvider:
+    applicationId: APPLICATION-1234567890000000
+    enabled: false
+    htmlPattern: example
+    operator: Starts
+    rule: AfterSpecificHtml
+    urlPattern: /terraform

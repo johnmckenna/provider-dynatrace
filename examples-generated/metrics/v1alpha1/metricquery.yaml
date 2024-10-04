@@ -1,0 +1,13 @@
+apiVersion: metrics.dynatrace.crossplane.io/v1alpha1
+kind: MetricQuery
+metadata:
+  annotations:
+    meta.upbound.io/example-id: metrics/v1alpha1/metricquery
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    metricId: metric-func:slo.terraform-test
+    metricSelector: |
+      ((100*(builtin:service.requestCount.server:filter(in("dt.entity.service",entitySelector("type(SERVICE),mzId(0000000000000000000),serviceType(WEB_SERVICE,WEB_REQUEST_SERVICE)"))):splitBy())/(builtin:service.requestCount.server:filter(in("dt.entity.service",entitySelector("type(SERVICE),mzId(0000000000000000000),serviceType(WEB_SERVICE,WEB_REQUEST_SERVICE)"))):splitBy())) - (95.0))

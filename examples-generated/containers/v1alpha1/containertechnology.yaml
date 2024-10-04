@@ -1,0 +1,19 @@
+apiVersion: containers.dynatrace.crossplane.io/v1alpha1
+kind: ContainerTechnology
+metadata:
+  annotations:
+    meta.upbound.io/example-id: containers/v1alpha1/containertechnology
+  labels:
+    testing.upbound.io/example-name: environment
+  name: environment
+spec:
+  forProvider:
+    boshProcessManager: true
+    containerd: true
+    crio: true
+    docker: true
+    dockerWindows: true
+    garden: true
+    podman: true
+    scope: environment
+    winc: true

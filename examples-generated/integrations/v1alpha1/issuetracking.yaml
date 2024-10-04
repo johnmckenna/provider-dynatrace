@@ -1,0 +1,21 @@
+apiVersion: integrations.dynatrace.crossplane.io/v1alpha1
+kind: IssueTracking
+metadata:
+  annotations:
+    meta.upbound.io/example-id: integrations/v1alpha1/issuetracking
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    issuelabel: '#name#'
+    issuequery: '{NAME}, {VERSION}'
+    issuetheme: INFO
+    issuetrackersystem: GITHUB
+    tokenSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    url: https://github.com/sampleorg/samplerepo
+    username: terraform-user

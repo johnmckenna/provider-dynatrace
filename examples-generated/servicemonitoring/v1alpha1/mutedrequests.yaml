@@ -1,0 +1,14 @@
+apiVersion: servicemonitoring.dynatrace.crossplane.io/v1alpha1
+kind: MutedRequests
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicemonitoring/v1alpha1/mutedrequests
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    mutedRequestNames:
+    - /healthcheck
+    - /heartbeat
+    serviceId: SERVICE-1234567890000000

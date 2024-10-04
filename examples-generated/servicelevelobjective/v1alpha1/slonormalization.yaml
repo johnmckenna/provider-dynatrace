@@ -1,0 +1,11 @@
+apiVersion: servicelevelobjective.dynatrace.crossplane.io/v1alpha1
+kind: SLONormalization
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicelevelobjective/v1alpha1/slonormalization
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    normalize: true

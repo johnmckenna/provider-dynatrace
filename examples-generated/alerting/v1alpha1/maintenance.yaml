@@ -1,0 +1,33 @@
+apiVersion: alerting.dynatrace.crossplane.io/v1alpha1
+kind: Maintenance
+metadata:
+  annotations:
+    meta.upbound.io/example-id: alerting/v1alpha1/maintenance
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    filters:
+    - filter:
+      - entityTags:
+        - KeyTest:ValueTest
+        entityType: HOST
+    generalProperties:
+    - description: Terraform test execution
+      disableSynthetic: true
+      name: '#name#'
+      suppression: DETECT_PROBLEMS_AND_ALERT
+      type: PLANNED
+    schedule:
+    - type: WEEKLY
+      weeklyRecurrence:
+      - dayOfWeek: MONDAY
+        recurrenceRange:
+        - endDate: "2022-10-06"
+          startDate: "2022-10-05"
+        timeWindow:
+        - endTime: "15:13:00"
+          startTime: "14:13:00"
+          timeZone: UTC

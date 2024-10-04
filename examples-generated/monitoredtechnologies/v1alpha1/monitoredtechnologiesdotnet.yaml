@@ -1,0 +1,13 @@
+apiVersion: monitoredtechnologies.dynatrace.crossplane.io/v1alpha1
+kind: MonitoredTechnologiesDotnet
+metadata:
+  annotations:
+    meta.upbound.io/example-id: monitoredtechnologies/v1alpha1/monitoredtechnologiesdotnet
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    enabledDotNetCore: false
+    hostId: environment

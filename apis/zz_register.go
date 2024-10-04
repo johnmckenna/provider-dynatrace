@@ -10,17 +10,115 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/upbound/upjet-provider-template/apis/null/v1alpha1"
-	v1alpha1apis "github.com/upbound/upjet-provider-template/apis/v1alpha1"
-	v1beta1 "github.com/upbound/upjet-provider-template/apis/v1beta1"
+	v1alpha1 "github.com/johnmckenna/provider-dynatrace/apis/accesstokens/v1alpha1"
+	v1alpha1alerting "github.com/johnmckenna/provider-dynatrace/apis/alerting/v1alpha1"
+	v1alpha1anomalydetection "github.com/johnmckenna/provider-dynatrace/apis/anomalydetection/v1alpha1"
+	v1alpha1appengine "github.com/johnmckenna/provider-dynatrace/apis/appengine/v1alpha1"
+	v1alpha1applicationsecurity "github.com/johnmckenna/provider-dynatrace/apis/applicationsecurity/v1alpha1"
+	v1alpha1automation "github.com/johnmckenna/provider-dynatrace/apis/automation/v1alpha1"
+	v1alpha1browsermonitors "github.com/johnmckenna/provider-dynatrace/apis/browsermonitors/v1alpha1"
+	v1alpha1businessevents "github.com/johnmckenna/provider-dynatrace/apis/businessevents/v1alpha1"
+	v1alpha1cloudplatforms "github.com/johnmckenna/provider-dynatrace/apis/cloudplatforms/v1alpha1"
+	v1alpha1clustermanagement "github.com/johnmckenna/provider-dynatrace/apis/clustermanagement/v1alpha1"
+	v1alpha1containers "github.com/johnmckenna/provider-dynatrace/apis/containers/v1alpha1"
+	v1alpha1credentials "github.com/johnmckenna/provider-dynatrace/apis/credentials/v1alpha1"
+	v1alpha1dashboards "github.com/johnmckenna/provider-dynatrace/apis/dashboards/v1alpha1"
+	v1alpha1deprecated "github.com/johnmckenna/provider-dynatrace/apis/deprecated/v1alpha1"
+	v1alpha1developerobservability "github.com/johnmckenna/provider-dynatrace/apis/developerobservability/v1alpha1"
+	v1alpha1documents "github.com/johnmckenna/provider-dynatrace/apis/documents/v1alpha1"
+	v1alpha1environmentsettings "github.com/johnmckenna/provider-dynatrace/apis/environmentsettings/v1alpha1"
+	v1alpha1extensions "github.com/johnmckenna/provider-dynatrace/apis/extensions/v1alpha1"
+	v1alpha1failuredetection "github.com/johnmckenna/provider-dynatrace/apis/failuredetection/v1alpha1"
+	v1alpha1hostmonitoring "github.com/johnmckenna/provider-dynatrace/apis/hostmonitoring/v1alpha1"
+	v1alpha1httpmonitors "github.com/johnmckenna/provider-dynatrace/apis/httpmonitors/v1alpha1"
+	v1alpha1iam "github.com/johnmckenna/provider-dynatrace/apis/iam/v1alpha1"
+	v1alpha1incubator "github.com/johnmckenna/provider-dynatrace/apis/incubator/v1alpha1"
+	v1alpha1integrations "github.com/johnmckenna/provider-dynatrace/apis/integrations/v1alpha1"
+	v1alpha1logmonitoring "github.com/johnmckenna/provider-dynatrace/apis/logmonitoring/v1alpha1"
+	v1alpha1mainframe "github.com/johnmckenna/provider-dynatrace/apis/mainframe/v1alpha1"
+	v1alpha1metrics "github.com/johnmckenna/provider-dynatrace/apis/metrics/v1alpha1"
+	v1alpha1mobilecustomapplications "github.com/johnmckenna/provider-dynatrace/apis/mobilecustomapplications/v1alpha1"
+	v1alpha1monitoredentities "github.com/johnmckenna/provider-dynatrace/apis/monitoredentities/v1alpha1"
+	v1alpha1monitoredtechnologies "github.com/johnmckenna/provider-dynatrace/apis/monitoredtechnologies/v1alpha1"
+	v1alpha1networkavailabilitymonitors "github.com/johnmckenna/provider-dynatrace/apis/networkavailabilitymonitors/v1alpha1"
+	v1alpha1notifications "github.com/johnmckenna/provider-dynatrace/apis/notifications/v1alpha1"
+	v1alpha1opentelemetryopentracing "github.com/johnmckenna/provider-dynatrace/apis/opentelemetryopentracing/v1alpha1"
+	v1alpha1ownership "github.com/johnmckenna/provider-dynatrace/apis/ownership/v1alpha1"
+	v1alpha1platform "github.com/johnmckenna/provider-dynatrace/apis/platform/v1alpha1"
+	v1alpha1processgroupmonitoring "github.com/johnmckenna/provider-dynatrace/apis/processgroupmonitoring/v1alpha1"
+	v1alpha1processmonitoring "github.com/johnmckenna/provider-dynatrace/apis/processmonitoring/v1alpha1"
+	v1alpha1realusermonitoring "github.com/johnmckenna/provider-dynatrace/apis/realusermonitoring/v1alpha1"
+	v1alpha1servicedetection "github.com/johnmckenna/provider-dynatrace/apis/servicedetection/v1alpha1"
+	v1alpha1servicelevelobjective "github.com/johnmckenna/provider-dynatrace/apis/servicelevelobjective/v1alpha1"
+	v1alpha1servicemonitoring "github.com/johnmckenna/provider-dynatrace/apis/servicemonitoring/v1alpha1"
+	v1alpha1servicesettings "github.com/johnmckenna/provider-dynatrace/apis/servicesettings/v1alpha1"
+	v1alpha1sessionreplay "github.com/johnmckenna/provider-dynatrace/apis/sessionreplay/v1alpha1"
+	v1alpha1synthetic "github.com/johnmckenna/provider-dynatrace/apis/synthetic/v1alpha1"
+	v1alpha1tags "github.com/johnmckenna/provider-dynatrace/apis/tags/v1alpha1"
+	v1alpha1topologymodel "github.com/johnmckenna/provider-dynatrace/apis/topologymodel/v1alpha1"
+	v1alpha1updates "github.com/johnmckenna/provider-dynatrace/apis/updates/v1alpha1"
+	v1alpha1usersettings "github.com/johnmckenna/provider-dynatrace/apis/usersettings/v1alpha1"
+	v1alpha1apis "github.com/johnmckenna/provider-dynatrace/apis/v1alpha1"
+	v1beta1 "github.com/johnmckenna/provider-dynatrace/apis/v1beta1"
+	v1alpha1virtualization "github.com/johnmckenna/provider-dynatrace/apis/virtualization/v1alpha1"
+	v1alpha1webapplications "github.com/johnmckenna/provider-dynatrace/apis/webapplications/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1alerting.SchemeBuilder.AddToScheme,
+		v1alpha1anomalydetection.SchemeBuilder.AddToScheme,
+		v1alpha1appengine.SchemeBuilder.AddToScheme,
+		v1alpha1applicationsecurity.SchemeBuilder.AddToScheme,
+		v1alpha1automation.SchemeBuilder.AddToScheme,
+		v1alpha1browsermonitors.SchemeBuilder.AddToScheme,
+		v1alpha1businessevents.SchemeBuilder.AddToScheme,
+		v1alpha1cloudplatforms.SchemeBuilder.AddToScheme,
+		v1alpha1clustermanagement.SchemeBuilder.AddToScheme,
+		v1alpha1containers.SchemeBuilder.AddToScheme,
+		v1alpha1credentials.SchemeBuilder.AddToScheme,
+		v1alpha1dashboards.SchemeBuilder.AddToScheme,
+		v1alpha1deprecated.SchemeBuilder.AddToScheme,
+		v1alpha1developerobservability.SchemeBuilder.AddToScheme,
+		v1alpha1documents.SchemeBuilder.AddToScheme,
+		v1alpha1environmentsettings.SchemeBuilder.AddToScheme,
+		v1alpha1extensions.SchemeBuilder.AddToScheme,
+		v1alpha1failuredetection.SchemeBuilder.AddToScheme,
+		v1alpha1hostmonitoring.SchemeBuilder.AddToScheme,
+		v1alpha1httpmonitors.SchemeBuilder.AddToScheme,
+		v1alpha1iam.SchemeBuilder.AddToScheme,
+		v1alpha1incubator.SchemeBuilder.AddToScheme,
+		v1alpha1integrations.SchemeBuilder.AddToScheme,
+		v1alpha1logmonitoring.SchemeBuilder.AddToScheme,
+		v1alpha1mainframe.SchemeBuilder.AddToScheme,
+		v1alpha1metrics.SchemeBuilder.AddToScheme,
+		v1alpha1mobilecustomapplications.SchemeBuilder.AddToScheme,
+		v1alpha1monitoredentities.SchemeBuilder.AddToScheme,
+		v1alpha1monitoredtechnologies.SchemeBuilder.AddToScheme,
+		v1alpha1networkavailabilitymonitors.SchemeBuilder.AddToScheme,
+		v1alpha1notifications.SchemeBuilder.AddToScheme,
+		v1alpha1opentelemetryopentracing.SchemeBuilder.AddToScheme,
+		v1alpha1ownership.SchemeBuilder.AddToScheme,
+		v1alpha1platform.SchemeBuilder.AddToScheme,
+		v1alpha1processgroupmonitoring.SchemeBuilder.AddToScheme,
+		v1alpha1processmonitoring.SchemeBuilder.AddToScheme,
+		v1alpha1realusermonitoring.SchemeBuilder.AddToScheme,
+		v1alpha1servicedetection.SchemeBuilder.AddToScheme,
+		v1alpha1servicelevelobjective.SchemeBuilder.AddToScheme,
+		v1alpha1servicemonitoring.SchemeBuilder.AddToScheme,
+		v1alpha1servicesettings.SchemeBuilder.AddToScheme,
+		v1alpha1sessionreplay.SchemeBuilder.AddToScheme,
+		v1alpha1synthetic.SchemeBuilder.AddToScheme,
+		v1alpha1tags.SchemeBuilder.AddToScheme,
+		v1alpha1topologymodel.SchemeBuilder.AddToScheme,
+		v1alpha1updates.SchemeBuilder.AddToScheme,
+		v1alpha1usersettings.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 		v1beta1.SchemeBuilder.AddToScheme,
+		v1alpha1virtualization.SchemeBuilder.AddToScheme,
+		v1alpha1webapplications.SchemeBuilder.AddToScheme,
 	)
 }
 

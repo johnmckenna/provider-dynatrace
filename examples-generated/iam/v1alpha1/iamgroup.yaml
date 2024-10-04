@@ -1,0 +1,16 @@
+apiVersion: iam.dynatrace.crossplane.io/v1alpha1
+kind: IAMGroup
+metadata:
+  annotations:
+    meta.upbound.io/example-id: iam/v1alpha1/iamgroup
+  labels:
+    testing.upbound.io/example-name: Restricted
+  name: restricted
+spec:
+  forProvider:
+    name: Restricted
+    permissions:
+    - permission:
+      - name: tenant-viewer
+        scope: <environment-id>:<managementzone-id>
+        type: management-zone

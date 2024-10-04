@@ -1,0 +1,14 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogBuckets
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logbuckets
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    bucketName: default_logs
+    enabled: true
+    matcher: matchesPhrase(content, "error")
+    ruleName: '#name#'

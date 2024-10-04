@@ -1,0 +1,19 @@
+apiVersion: servicemonitoring.dynatrace.crossplane.io/v1alpha1
+kind: APIDetection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicemonitoring/v1alpha1/apidetection
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    apiColor: '#5ead35'
+    apiName: '#name#'
+    conditions:
+    - condition:
+      - base: PACKAGE
+        matcher: BEGINS_WITH
+        pattern: com.terraform
+    technology: Go
+    thirdPartyApi: false

@@ -1,0 +1,23 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: DatabaseAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/databaseanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    dbConnectFailures:
+    - connectionFailsCount: 5
+      evalPeriod: 5
+    failureRate:
+    - thresholds:
+      - sensitivity: LOW
+        threshold: 0
+    responseTime:
+    - thresholds:
+      - load: FIFTEEN_REQUESTS_PER_MINUTE
+        milliseconds: 15
+        sensitivity: HIGH
+        slowestMilliseconds: 23

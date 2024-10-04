@@ -1,0 +1,15 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogSecurityContext
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logsecuritycontext
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    securityContextRule:
+    - query: matchesPhrase(content, "#name#")
+      ruleName: '#name#'
+      valueSource: FIELD
+      valueSourceField: '#name#'

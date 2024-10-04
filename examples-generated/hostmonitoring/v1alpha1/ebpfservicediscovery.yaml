@@ -1,0 +1,12 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: EbpfServiceDiscovery
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/ebpfservicediscovery
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    ebpf: true
+    scope: environment

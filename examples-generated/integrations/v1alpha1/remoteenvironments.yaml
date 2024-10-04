@@ -1,0 +1,17 @@
+apiVersion: integrations.dynatrace.crossplane.io/v1alpha1
+kind: RemoteEnvironments
+metadata:
+  annotations:
+    meta.upbound.io/example-id: integrations/v1alpha1/remoteenvironments
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: TerraformExample
+    networkScope: EXTERNAL
+    tokenSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    uri: https://terraformexample.live.dynatrace.com

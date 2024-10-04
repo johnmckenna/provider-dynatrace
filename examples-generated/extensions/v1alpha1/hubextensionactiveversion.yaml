@@ -1,0 +1,12 @@
+apiVersion: extensions.dynatrace.crossplane.io/v1alpha1
+kind: HubExtensionActiveVersion
+metadata:
+  annotations:
+    meta.upbound.io/example-id: extensions/v1alpha1/hubextensionactiveversion
+  labels:
+    testing.upbound.io/example-name: custom_com_dynatrace_extension_prometheus-cadvisor
+  name: custom-com-dynatrace-extension-prometheus-cadvisor
+spec:
+  forProvider:
+    name: com.dynatrace.extension.active-directory-python
+    version: 3.1.6

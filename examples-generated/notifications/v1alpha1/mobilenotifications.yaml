@@ -1,0 +1,11 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: MobileNotifications
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/mobilenotifications
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false

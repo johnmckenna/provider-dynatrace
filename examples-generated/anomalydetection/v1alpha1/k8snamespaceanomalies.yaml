@@ -1,0 +1,41 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: K8SNamespaceAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/k8snamespaceanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    cpuLimitsQuotaSaturation:
+    - configuration:
+      - observationPeriodInMinutes: 15
+        samplePeriodInMinutes: 10
+        threshold: 90
+      enabled: true
+    cpuRequestsQuotaSaturation:
+    - configuration:
+      - observationPeriodInMinutes: 15
+        samplePeriodInMinutes: 10
+        threshold: 90
+      enabled: true
+    memoryLimitsQuotaSaturation:
+    - configuration:
+      - observationPeriodInMinutes: 15
+        samplePeriodInMinutes: 10
+        threshold: 90
+      enabled: true
+    memoryRequestsQuotaSaturation:
+    - configuration:
+      - observationPeriodInMinutes: 15
+        samplePeriodInMinutes: 10
+        threshold: 90
+      enabled: true
+    podsQuotaSaturation:
+    - configuration:
+      - observationPeriodInMinutes: 15
+        samplePeriodInMinutes: 10
+        threshold: 90
+      enabled: true
+    scope: environment

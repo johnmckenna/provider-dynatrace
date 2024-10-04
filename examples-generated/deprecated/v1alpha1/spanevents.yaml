@@ -1,0 +1,12 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: SpanEvents
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/spanevents
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    key: exception.terraform
+    masking: NOT_MASKED

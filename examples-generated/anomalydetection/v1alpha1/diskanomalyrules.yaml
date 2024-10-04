@@ -1,0 +1,21 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: DiskAnomalyRules
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/diskanomalyrules
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    diskNameFilter:
+    - operator: CONTAINS
+      value: '#name#'
+    enabled: false
+    hostGroupId: HOST_GROUP-1234567890000000
+    metric: LOW_DISK_SPACE
+    name: '#name#'
+    sampleLimit:
+    - samples: 3
+      violatingSamples: 3
+    thresholdPercent: 10

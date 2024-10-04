@@ -1,0 +1,21 @@
+apiVersion: topologymodel.dynatrace.crossplane.io/v1alpha1
+kind: GenericRelationships
+metadata:
+  annotations:
+    meta.upbound.io/example-id: topologymodel/v1alpha1/genericrelationships
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    createdBy: Terraform
+    enabled: true
+    fromRole: terraformrole
+    fromType: os:service
+    sources:
+    - source:
+      - condition: $eq(terraform)
+        sourceType: Metrics
+    toRole: terraformrole
+    toType: terraformdestination
+    typeOfRelation: PART_OF

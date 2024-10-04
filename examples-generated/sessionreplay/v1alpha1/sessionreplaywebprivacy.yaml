@@ -1,0 +1,21 @@
+apiVersion: sessionreplay.dynatrace.crossplane.io/v1alpha1
+kind: SessionReplayWebPrivacy
+metadata:
+  annotations:
+    meta.upbound.io/example-id: sessionreplay/v1alpha1/sessionreplaywebprivacy
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    applicationId: APPLICATION-1234567890000000
+    enableOptInMode: false
+    maskingPresets:
+    - playbackMaskingPreset: MASK_ALL
+      recordingMaskingAllowListRules:
+      - allowListRule:
+        - cssExpression: selector.example
+          target: ELEMENT
+      recordingMaskingPreset: ALLOW_LIST
+    urlExclusionPatternList:
+    - www.google.com

@@ -1,0 +1,45 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: DavisAnomalyDetectors
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/davisanomalydetectors
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    analyzer:
+    - input:
+      - analyzerInputField:
+        - key: alertCondition
+          value: ABOVE
+        - key: alertOnMissingData
+          value: "false"
+        - key: violatingSamples
+          value: "3"
+        - key: slidingWindow
+          value: "5"
+        - key: dealertingSamples
+          value: "5"
+        - key: query
+          value: fetch bizevents
+        - key: threshold
+          value: "12345678"
+      name: dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer
+    description: Sample Description
+    enabled: false
+    eventTemplate:
+    - properties:
+      - property:
+        - key: dt.source_entity
+          value: '{dims:dt.source_entity}'
+        - key: event.type
+          value: CUSTOM_ALERT
+        - key: event.name
+          value: Event Name Example
+        - key: event.description
+          value: Event Description Example
+    executionSettings:
+    - {}
+    source: Davis Anomaly Detection
+    title: '#name#'

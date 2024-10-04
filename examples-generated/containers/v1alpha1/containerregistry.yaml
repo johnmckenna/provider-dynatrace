@@ -1,0 +1,11 @@
+apiVersion: containers.dynatrace.crossplane.io/v1alpha1
+kind: ContainerRegistry
+metadata:
+  annotations:
+    meta.upbound.io/example-id: containers/v1alpha1/containerregistry
+  labels:
+    testing.upbound.io/example-name: environment
+  name: environment
+spec:
+  forProvider:
+    containerRegistry: private.registry.org

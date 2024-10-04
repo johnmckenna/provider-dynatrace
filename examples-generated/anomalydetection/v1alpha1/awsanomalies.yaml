@@ -1,0 +1,42 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: AwsAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/awsanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    ec2CandidateHighCpuDetection:
+    - customThresholds:
+      - cpuUsage: 94
+      detectionMode: custom
+      enabled: true
+    elbHighConnectionErrorsDetection:
+    - customThresholds:
+      - connectionErrorsPerMinute: 9
+      detectionMode: custom
+      enabled: true
+    lambdaHighErrorRateDetection:
+    - customThresholds:
+      - failedInvocationsRate: 4
+      detectionMode: custom
+      enabled: true
+    rdsHighCpuDetection:
+    - enabled: false
+    rdsHighMemoryDetection:
+    - customThresholds:
+      - freeMemory: 94
+        swapUsage: 4
+      detectionMode: custom
+      enabled: true
+    rdsHighWriteReadLatencyDetection:
+    - customThresholds:
+      - readWriteLatency: 194
+      detectionMode: custom
+      enabled: true
+    rdsLowStorageDetection:
+    - enabled: false
+    rdsRestartsSequenceDetection:
+    - enabled: false

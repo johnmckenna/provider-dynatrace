@@ -1,0 +1,24 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: DeclarativeGrouping
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/declarativegrouping
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    detection:
+    - processDefinition:
+      - id: PGIdentifierSample
+        processGroupName: PGDisplayNameSample
+        report: always
+        rules:
+        - rule:
+          - condition: $contains(TFExecutableSample)
+            property: executable
+          - condition: $contains(TFCommandSample)
+            property: commandLine
+    enabled: true
+    name: '#name#'
+    scope: environment

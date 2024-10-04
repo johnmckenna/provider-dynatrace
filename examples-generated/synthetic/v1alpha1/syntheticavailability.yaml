@@ -1,0 +1,11 @@
+apiVersion: synthetic.dynatrace.crossplane.io/v1alpha1
+kind: SyntheticAvailability
+metadata:
+  annotations:
+    meta.upbound.io/example-id: synthetic/v1alpha1/syntheticavailability
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    excludeMaintenanceWindows: true

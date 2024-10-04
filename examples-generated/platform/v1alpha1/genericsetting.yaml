@@ -1,0 +1,21 @@
+apiVersion: platform.dynatrace.crossplane.io/v1alpha1
+kind: GenericSetting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: platform/v1alpha1/genericsetting
+  labels:
+    testing.upbound.io/example-name: ABC
+  name: abc
+spec:
+  forProvider:
+    schema: app:my.booking.analytics:connection
+    scope: environment
+    value: |-
+      ${jsonencode({
+          "client_id"     : "asdfhh",
+          "client_secret" : "mysecret",
+          "name"          : "ABC",
+          "tenant_id"     : "asdf",
+          "type"          : "client_secret",
+          "user_id"       : "asdf"
+        })}

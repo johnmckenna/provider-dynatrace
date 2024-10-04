@@ -1,0 +1,16 @@
+apiVersion: developerobservability.dynatrace.crossplane.io/v1alpha1
+kind: DevobsDataMasking
+metadata:
+  annotations:
+    meta.upbound.io/example-id: developerobservability/v1alpha1/devobsdatamasking
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    replacementPattern: '#name#'
+    replacementType: STRING
+    ruleName: '#name#'
+    ruleType: VAR_NAME
+    ruleVarName: '#name#'

@@ -1,0 +1,26 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: CustomAnomalies
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/customanomalies
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    description: The {metricname} value of {severity} was {alert_condition} the baseline
+      of {baseline}.
+    enabled: true
+    metricSelector: ghputoutgoing:filter(existsKey("dt.entity.service"),in("dt.entity.service",entitySelector("type(SERVICE),mzId(6734823652592292763)"))):avg
+    name: '#name#'
+    primaryDimensionKey: dt.entity.service
+    severity: PERFORMANCE
+    strategy:
+    - auto:
+      - alertCondition: ABOVE
+        alertingOnMissingData: false
+        dealertingSamples: 5
+        samples: 5
+        signalFluctuations: 1
+        violatingSamples: 3
+    warningReason: NONE

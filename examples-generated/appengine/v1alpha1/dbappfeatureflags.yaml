@@ -1,0 +1,13 @@
+apiVersion: appengine.dynatrace.crossplane.io/v1alpha1
+kind: DBAppFeatureFlags
+metadata:
+  annotations:
+    meta.upbound.io/example-id: appengine/v1alpha1/dbappfeatureflags
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: Terraform
+    stringValue: '#name#'
+    type: string

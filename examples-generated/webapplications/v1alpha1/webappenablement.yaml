@@ -1,0 +1,16 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebAppEnablement
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webappenablement
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    rum:
+    - costAndTrafficControl: 25
+      enabled: true
+    sessionReplay:
+    - costAndTrafficControl: 25
+      enabled: false

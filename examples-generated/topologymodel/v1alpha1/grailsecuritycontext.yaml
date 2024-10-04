@@ -1,0 +1,12 @@
+apiVersion: topologymodel.dynatrace.crossplane.io/v1alpha1
+kind: GrailSecurityContext
+metadata:
+  annotations:
+    meta.upbound.io/example-id: topologymodel/v1alpha1/grailsecuritycontext
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    destinationProperty: exampleproperty
+    entityType: exampletype

@@ -1,0 +1,33 @@
+apiVersion: tags.dynatrace.crossplane.io/v1alpha1
+kind: AutotagRules
+metadata:
+  annotations:
+    meta.upbound.io/example-id: tags/v1alpha1/autotagrules
+  labels:
+    testing.upbound.io/example-name: sample
+  name: sample
+spec:
+  forProvider:
+    autoTagId: ${dynatrace_autotag_v2.sample.id}
+    rules:
+    - rule:
+      - enabled: true
+        entitySelector: type(SERVICE),tag(sample)
+        type: SELECTOR
+        valueFormat: disabled
+        valueNormalization: Leave text as-is
+
+---
+
+apiVersion: tags.dynatrace.crossplane.io/v1alpha1
+kind: AutotagV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: tags/v1alpha1/autotagrules
+  labels:
+    testing.upbound.io/example-name: sample
+  name: sample
+spec:
+  forProvider:
+    name: sample
+    rulesMaintainedExternally: true

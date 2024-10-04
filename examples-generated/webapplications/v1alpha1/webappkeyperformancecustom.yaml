@@ -1,0 +1,14 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebAppKeyPerformanceCustom
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webappkeyperformancecustom
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    scope: APPLICATION_METHOD-1234567890000000
+    thresholds:
+    - frustratingThresholdSeconds: 12
+      toleratedThresholdSeconds: 3

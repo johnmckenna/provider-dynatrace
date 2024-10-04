@@ -1,0 +1,27 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: DiskAnomaliesV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/diskanomaliesv2
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    disk:
+    - diskLowInodesDetection:
+      - customThresholds:
+        - freeInodesPercentage: 5
+        detectionMode: custom
+        enabled: true
+      diskLowSpaceDetection:
+      - customThresholds:
+        - freeSpacePercentage: 3
+        detectionMode: custom
+        enabled: true
+      diskSlowWritesAndReadsDetection:
+      - customThresholds:
+        - writeAndReadTime: 200
+        detectionMode: custom
+        enabled: true
+    scope: environment

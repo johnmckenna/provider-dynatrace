@@ -1,0 +1,19 @@
+apiVersion: virtualization.dynatrace.crossplane.io/v1alpha1
+kind: Vmware
+metadata:
+  annotations:
+    meta.upbound.io/example-id: virtualization/v1alpha1/vmware
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    filter: $contains(Terraform)
+    ipaddress: vcenter01
+    label: '#name#'
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    username: terraform

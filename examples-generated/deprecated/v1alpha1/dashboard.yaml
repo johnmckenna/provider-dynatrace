@@ -1,0 +1,605 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: Dashboard
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/dashboard
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    dashboardMetadata:
+    - dynamicFilters:
+      - filters:
+        - KUBERNETES_CLUSTER
+      name: '#name#'
+      owner: Dynatrace
+      shared: false
+      tags:
+      - Kubernetes
+    tile:
+    - bounds:
+      - height: 38
+        left: 0
+        top: 0
+        width: 684
+      configured: true
+      markdown: '## Cluster resource overview'
+      name: Markdown
+      tileType: MARKDOWN
+    - bounds:
+      - height: 304
+        left: 342
+        top: 38
+        width: 342
+      chartVisible: true
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          type: TIMESERIES
+        customName: Full-Stack Kubernetes nodes
+        defaultName: Full-Stack Kubernetes nodes
+        type: HOST
+      name: ""
+      tileType: HOSTS
+    - bounds:
+      - height: 152
+        left: 190
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: KUBERNETES_CLUSTER
+            metric: builtin:cloud.kubernetes.cluster.cpuAvailable
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: CPU available
+        defaultName: Custom chart
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 304
+        left: 684
+        top: 38
+        width: 304
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          resultMetadata:
+          - config:
+            - customColor: '#008cdb'
+              key: null¦Pod phase»Succeeded»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597237249882
+            - customColor: '#64bd64'
+              key: null¦Pod phase»Running»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234642722
+            - customColor: '#f5d30f'
+              key: null¦Pod phase»Pending»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234457744
+            - customColor: '#ff0000'
+              key: null¦Pod phase»Failed»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234118116
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: false
+              id: "1"
+              name: Pod phase
+            entityType: CLOUD_APPLICATION
+            metric: builtin:cloud.kubernetes.workload.pods
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: PIE
+        customName: Pods
+        defaultName: Custom chart
+        type: MIXED
+      name: ""
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 152
+        left: 608
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: KUBERNETES_CLUSTER
+            metric: builtin:cloud.kubernetes.cluster.memoryAvailable
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: Memory available
+        defaultName: Custom chart
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 38
+        left: 0
+        top: 380
+        width: 1634
+      configured: true
+      markdown: '## Node resource usage'
+      name: Markdown
+      tileType: MARKDOWN
+    - bounds:
+      - height: 304
+        left: 0
+        top: 38
+        width: 342
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: AVG
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: true
+              id: "0"
+              name: dt.entity.kubernetes_cluster
+            entityType: KUBERNETES_CLUSTER
+            metric: builtin:cloud.kubernetes.cluster.nodes
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: PIE
+        customName: Cluster nodes
+        defaultName: Custom chart
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 152
+        left: 1026
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: HOST
+            metric: builtin:host.disk.avail
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: Disk available
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: ""
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 304
+        left: 0
+        top: 570
+        width: 418
+      configured: true
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: AVG
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: true
+              id: "0"
+              name: dt.entity.host
+            entityType: HOST
+            metric: builtin:host.cpu.usage
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: TIMESERIES
+        customName: 'CPU usage % '
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 304
+        left: 418
+        top: 570
+        width: 418
+      configured: true
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: AVG
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: true
+              id: "0"
+              name: dt.entity.host
+            entityType: HOST
+            metric: builtin:host.mem.usage
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: TIMESERIES
+        customName: 'Memory usage % '
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 304
+        left: 836
+        top: 570
+        width: 418
+      configured: true
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: AVG
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: true
+              id: "0"
+              name: dt.entity.host
+            - entityDimension: true
+              id: "1"
+              name: dt.entity.disk
+            entityType: HOST
+            metric: builtin:host.disk.usedPct
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: TIMESERIES
+        customName: 'Disk usage % '
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 152
+        left: 0
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: KUBERNETES_CLUSTER
+            metric: builtin:cloud.kubernetes.cluster.cpuRequested
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: Total CPU requests
+        defaultName: Custom chart
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 152
+        left: 418
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: KUBERNETES_CLUSTER
+            metric: builtin:cloud.kubernetes.cluster.memoryRequested
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: Total memory requests
+        defaultName: Custom chart
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 152
+        left: 836
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: HOST
+            metric: builtin:host.disk.used
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: Total disk used
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: ""
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 304
+        left: 1254
+        top: 570
+        width: 380
+      configured: true
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: true
+              id: "0"
+              name: dt.entity.host
+            entityType: HOST
+            metric: builtin:host.net.nic.trafficIn
+            sortAscending: false
+            sortColumn: false
+            type: LINE
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: true
+              id: "0"
+              name: dt.entity.host
+            entityType: HOST
+            metric: builtin:host.net.nic.trafficOut
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: TIMESERIES
+        customName: Traffic in/out
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: Custom chart
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 152
+        left: 1444
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: HOST
+            metric: builtin:host.net.nic.trafficOut
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: Traffic out
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: ""
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 152
+        left: 1254
+        top: 418
+        width: 190
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            entityType: HOST
+            metric: builtin:host.net.nic.trafficIn
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: SINGLE_VALUE
+        customName: Traffic in
+        defaultName: Custom chart
+        filters:
+        - filter:
+          - entityType: HOST
+            match:
+            - key: HOST_SOFTWARE_TECH
+              values:
+              - KUBERNETES
+        type: MIXED
+      name: ""
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 38
+        left: 684
+        top: 0
+        width: 950
+      configured: true
+      markdown: '## [Workloads overview](#dashboard;id=6b38732e-d26b-45c7-b107-ed85e87ff288)'
+      name: Markdown
+      tileType: MARKDOWN
+    - bounds:
+      - height: 304
+        left: 1330
+        top: 38
+        width: 304
+      configured: true
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          resultMetadata:
+          - config:
+            - customColor: '#008cdb'
+              key: null¦Pod phase»Succeeded»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597237249882
+            - customColor: '#64bd64'
+              key: null¦Pod phase»Running»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234642722
+            - customColor: '#f5d30f'
+              key: null¦Pod phase»Pending»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234457744
+            - customColor: '#ff0000'
+              key: null¦Pod phase»Failed»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234118116
+            - customColor: '#ffa86c'
+              key: null¦Deployment type»DaemonSet»falsebuiltin:cloud.kubernetes.namespace.workloads|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION_NAMESPACE
+              lastModified: 1597858600132
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: false
+              id: "1"
+              name: Deployment type
+            entityType: CLOUD_APPLICATION_NAMESPACE
+            metric: builtin:cloud.kubernetes.namespace.workloads
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: PIE
+        customName: Workloads
+        defaultName: Custom chart
+        type: MIXED
+      name: ""
+      tileType: CUSTOM_CHARTING
+    - bounds:
+      - height: 304
+        left: 988
+        top: 38
+        width: 342
+      configured: true
+      filter:
+      - timeframe: -5m
+      filterConfig:
+      - chartConfig:
+        - legend: true
+          resultMetadata:
+          - config:
+            - customColor: '#008cdb'
+              key: null¦Pod phase»Succeeded»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597237249882
+            - customColor: '#64bd64'
+              key: null¦Pod phase»Running»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234642722
+            - customColor: '#f5d30f'
+              key: null¦Pod phase»Pending»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234457744
+            - customColor: '#ff0000'
+              key: null¦Pod phase»Failed»falsebuiltin:cloud.kubernetes.workload.pods|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION
+              lastModified: 1597234118116
+            - customColor: '#ffa86c'
+              key: null¦Deployment type»DaemonSet»falsebuiltin:cloud.kubernetes.namespace.workloads|SUM_DIMENSIONS|TOTAL|LINE|CLOUD_APPLICATION_NAMESPACE
+              lastModified: 1597858600132
+          series:
+          - aggregation: SUM_DIMENSIONS
+            aggregationRate: TOTAL
+            dimension:
+            - entityDimension: true
+              id: "0"
+              name: dt.entity.cloud_application_namespace
+            entityType: CLOUD_APPLICATION_NAMESPACE
+            metric: builtin:cloud.kubernetes.namespace.runningPods
+            sortAscending: false
+            sortColumn: true
+            type: LINE
+          type: TOP_LIST
+        customName: Running pods
+        defaultName: Custom chart
+        type: MIXED
+      name: ""
+      tileType: CUSTOM_CHARTING

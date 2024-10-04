@@ -1,0 +1,13 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: AixExtension
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/aixextension
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    hostId: HOST-1234567890000000
+    useGlobalSettings: false

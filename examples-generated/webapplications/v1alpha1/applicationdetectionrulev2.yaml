@@ -1,0 +1,13 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: ApplicationDetectionRuleV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/applicationdetectionrulev2
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    applicationId: APPLICATION-90CE01F27D579187
+    matcher: DOMAIN_MATCHES
+    pattern: TerraformTest

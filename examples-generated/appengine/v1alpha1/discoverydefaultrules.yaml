@@ -1,0 +1,30 @@
+apiVersion: appengine.dynatrace.crossplane.io/v1alpha1
+kind: DiscoveryDefaultRules
+metadata:
+  annotations:
+    meta.upbound.io/example-id: appengine/v1alpha1/discoverydefaultrules
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    rule:
+    - actions:
+      - action:
+        - name: setMonitoringMode
+          parameters:
+          - parameter:
+            - name: mode
+              value: FULL_STACK
+      category: Deep monitoring
+      description: Through end-to-end tracing services on these hosts were found to
+        be externally facing
+      environmentScope: false
+      id: '#name#'
+      priority: CRITICAL
+      query: "fetch dt.entity.host, from:-15m\n        | filter hasPublicTraffic ==
+        true OR ebpfHasPublicTraffic == true\n        | fields host=entity.name, monitoringMode,
+        host.id=id, compliant=(monitoringMode == \"FULL_STACK\")\n              \n"
+      title: '#name#'
+    settings:
+    - muted: false

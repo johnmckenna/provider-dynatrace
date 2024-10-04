@@ -1,0 +1,40 @@
+apiVersion: anomalydetection.dynatrace.crossplane.io/v1alpha1
+kind: ServiceAnomaliesV2
+metadata:
+  annotations:
+    meta.upbound.io/example-id: anomalydetection/v1alpha1/serviceanomaliesv2
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    failureRate:
+    - detectionMode: fixed
+      enabled: true
+      fixedDetection:
+      - overAlertingProtection:
+        - minutesAbnormalState: 1
+          requestsPerMinute: 10
+        sensitivity: high
+        threshold: 5
+    loadDrops:
+    - enabled: true
+      loadDropPercent: 50
+      minutesAbnormalState: 1
+    loadSpikes:
+    - enabled: true
+      loadSpikePercent: 200
+      minutesAbnormalState: 1
+    responseTime:
+    - detectionMode: fixed
+      enabled: true
+      fixedDetection:
+      - overAlertingProtection:
+        - minutesAbnormalState: 1
+          requestsPerMinute: 10
+        responseTimeAll:
+        - degradationMilliseconds: 100
+        responseTimeSlowest:
+        - slowestDegradationMilliseconds: 1000
+        sensitivity: high
+    scope: SERVICE-1234567890000000

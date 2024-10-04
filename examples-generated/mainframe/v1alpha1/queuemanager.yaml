@@ -1,0 +1,53 @@
+apiVersion: mainframe.dynatrace.crossplane.io/v1alpha1
+kind: QueueManager
+metadata:
+  annotations:
+    meta.upbound.io/example-id: mainframe/v1alpha1/queuemanager
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    aliasQueues:
+    - aliasQueue:
+      - aliasQueueName: Alias Queue A
+        baseQueueName: Base Queue A
+      - aliasQueueName: Alias Queue B
+        baseQueueName: Base Queue B
+        clusterVisibility:
+        - Cluster 1
+      - aliasQueueName: Alias Queue C
+        baseQueueName: Base Queue C
+        clusterVisibility:
+        - Cluster 1
+        - Cluster 2
+    clusterQueues:
+    - clusterQueue:
+      - localQueueName: Local Queue A
+      - clusterVisibility:
+        - Cluster 1
+        localQueueName: Local Queue B
+      - clusterVisibility:
+        - Cluster 1
+        - Cluster 2
+        localQueueName: Local Queue C
+    clusters:
+    - Cluster 1
+    - Cluster 2
+    name: '#name#'
+    remoteQueues:
+    - remoteQueue:
+      - localQueueName: Local Queue A
+        remoteQueueManager: Remote Queue Manager A
+        remoteQueueName: Remote Queue A
+      - clusterVisibility:
+        - Cluster 1
+        localQueueName: Local Queue B
+        remoteQueueManager: Remote Queue Manager B
+        remoteQueueName: Remote Queue B
+      - clusterVisibility:
+        - Cluster 1
+        - Cluster 2
+        localQueueName: Local Queue C
+        remoteQueueManager: Remote Queue Manager C
+        remoteQueueName: Remote Queue C

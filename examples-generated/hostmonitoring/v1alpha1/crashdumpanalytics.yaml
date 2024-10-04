@@ -1,0 +1,12 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: CrashdumpAnalytics
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/crashdumpanalytics
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enableCrashDumpAnalytics: true
+    hostId: HOST-1234567890000000

@@ -1,0 +1,46 @@
+apiVersion: servicemonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ServiceNaming
+metadata:
+  annotations:
+    meta.upbound.io/example-id: servicemonitoring/v1alpha1/servicenaming
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    conditions:
+    - condition:
+      - key:
+        - attribute: SERVICE_TYPE
+          type: STATIC
+        serviceType:
+        - negate: false
+          operator: EQUALS
+          value: WEB_REQUEST_SERVICE
+      - key:
+        - attribute: SERVICE_TECHNOLOGY
+          type: STATIC
+        tech:
+        - negate: false
+          operator: EQUALS
+          value:
+          - type: APACHE_HTTP_SERVER
+      - key:
+        - attribute: SERVICE_TOPOLOGY
+          type: STATIC
+        serviceTopology:
+        - negate: false
+          operator: EQUALS
+          value: FULLY_MONITORED
+      - key:
+        - attribute: PROCESS_GROUP_TAGS
+          type: STATIC
+        tag:
+        - negate: true
+          operator: TAG_KEY_EQUALS
+          value:
+          - context: CONTEXTLESS
+            key: dfoo
+    enabled: true
+    format: ABCD
+    name: '#name#'

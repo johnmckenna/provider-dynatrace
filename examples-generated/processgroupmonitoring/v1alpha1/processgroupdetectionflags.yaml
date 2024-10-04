@@ -1,0 +1,26 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessGroupDetectionFlags
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/processgroupdetectionflags
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    addNodeJsScriptName: false
+    autoDetectCassandraClusters: true
+    autoDetectSpringBoot: true
+    autoDetectTibcoContainerEditionEngines: false
+    autoDetectTibcoEngines: false
+    autoDetectWebMethodsIntegrationServer: false
+    autoDetectWebSphereLibertyApplication: false
+    groupIbmmqbyInstanceName: false
+    identifyJbossServerBySystemProperty: true
+    ignoreUniqueIdentifiers: true
+    scope: environment
+    shortLivedProcessesMonitoring: true
+    splitOracleDatabasePg: false
+    splitOracleListenerPg: false
+    useCatalinaBase: false
+    useDockerContainerName: false

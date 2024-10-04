@@ -1,0 +1,36 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: ServiceNowNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/servicenownotification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    active: false
+    events: true
+    incidents: true
+    instance: '#name#'
+    message: service-now-message
+    name: '#name#'
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    profile: ${dynatrace_alerting.Default.id}
+    username: service-now-username
+
+---
+
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: Alerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/servicenownotification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    name: '#name#'

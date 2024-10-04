@@ -1,0 +1,17 @@
+apiVersion: opentelemetryopentracing.dynatrace.crossplane.io/v1alpha1
+kind: SpanContextPropagation
+metadata:
+  annotations:
+    meta.upbound.io/example-id: opentelemetryopentracing/v1alpha1/spancontextpropagation
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    action: PROPAGATE
+    matches:
+    - match:
+      - comparison: EQUALS
+        source: SPAN_NAME
+        value: asdf
+    name: '#name#'

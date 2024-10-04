@@ -1,0 +1,12 @@
+apiVersion: hostmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: HostMonitoringMode
+metadata:
+  annotations:
+    meta.upbound.io/example-id: hostmonitoring/v1alpha1/hostmonitoringmode
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    hostId: HOST-C061B59E578EE850
+    monitoringMode: FULL_STACK

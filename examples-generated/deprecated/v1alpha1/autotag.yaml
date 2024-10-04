@@ -1,0 +1,32 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: Autotag
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/autotag
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    name: '#name#'
+    rules:
+    - conditions:
+      - key:
+        - attribute: SERVICE_DETECTED_NAME
+          type: STATIC
+        string:
+        - caseSensitive: true
+          negate: false
+          operator: EQUALS
+          value: Requests to public networks
+      - key:
+        - attribute: SERVICE_TOPOLOGY
+          type: STATIC
+        serviceTopology:
+        - negate: false
+          operator: EQUALS
+          value: EXTERNAL_SERVICE
+      enabled: true
+      normalization: LEAVE_TEXT_AS_IS
+      type: SERVICE
+      valueFormat: '{Service:EndpointPath}'

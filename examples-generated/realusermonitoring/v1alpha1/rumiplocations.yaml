@@ -1,0 +1,14 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: RumIPLocations
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/rumiplocations
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    countryCode: ZA
+    ip: 192.168.3.1
+    ipTo: 192.168.3.100
+    regionCode: "05"

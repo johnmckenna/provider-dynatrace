@@ -1,0 +1,79 @@
+apiVersion: deprecated.dynatrace.crossplane.io/v1alpha1
+kind: AlertingProfile
+metadata:
+  annotations:
+    meta.upbound.io/example-id: deprecated/v1alpha1/alertingprofile
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    displayName: '#name#'
+    mzId: ""
+    rules:
+    - delayInMinutes: 0
+      severityLevel: AVAILABILITY
+      tagFilter:
+      - includeMode: INCLUDE_ALL
+        tagFilters:
+        - context: CONTEXTLESS
+          key: EnvironmentA
+          value: production
+        - context: CONTEXTLESS
+          key: Team
+          value: test
+    - delayInMinutes: 0
+      severityLevel: CUSTOM_ALERT
+      tagFilter:
+      - includeMode: INCLUDE_ALL
+        tagFilters:
+        - context: CONTEXTLESS
+          key: EnvironmentB
+          value: production
+        - context: CONTEXTLESS
+          key: Team
+          value: test
+    - delayInMinutes: 0
+      severityLevel: ERROR
+      tagFilter:
+      - includeMode: INCLUDE_ALL
+        tagFilters:
+        - context: CONTEXTLESS
+          key: EnvironmentC
+          value: production
+        - context: CONTEXTLESS
+          key: Team
+          value: test
+    - delayInMinutes: 0
+      severityLevel: MONITORING_UNAVAILABLE
+      tagFilter:
+      - includeMode: INCLUDE_ALL
+        tagFilters:
+        - context: CONTEXTLESS
+          key: EnvironmentD
+          value: production
+        - context: CONTEXTLESS
+          key: Team
+          value: test
+    - delayInMinutes: 0
+      severityLevel: PERFORMANCE
+      tagFilter:
+      - includeMode: INCLUDE_ALL
+        tagFilters:
+        - context: CONTEXTLESS
+          key: EnvironmentE
+          value: production
+        - context: CONTEXTLESS
+          key: Team
+          value: test
+    - delayInMinutes: 0
+      severityLevel: RESOURCE_CONTENTION
+      tagFilter:
+      - includeMode: INCLUDE_ALL
+        tagFilters:
+        - context: CONTEXTLESS
+          key: EnvironmentF
+          value: production
+        - context: CONTEXTLESS
+          key: Team
+          value: test

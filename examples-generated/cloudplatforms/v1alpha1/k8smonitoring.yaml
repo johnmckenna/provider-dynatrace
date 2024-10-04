@@ -1,0 +1,23 @@
+apiVersion: cloudplatforms.dynatrace.crossplane.io/v1alpha1
+kind: K8SMonitoring
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cloudplatforms/v1alpha1/k8smonitoring
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    cloudApplicationPipelineEnabled: true
+    eventPatterns:
+    - eventPattern:
+      - active: true
+        label: Node events
+        pattern: involvedObject.kind=Node
+    eventProcessingActive: true
+    filterEvents: true
+    includeAllFdiEvents: true
+    openMetricsBuiltinEnabled: false
+    openMetricsPipelineEnabled: true
+    pvcMonitoringEnabled: true
+    scope: KUBERNETES_CLUSTER-1234567890000000

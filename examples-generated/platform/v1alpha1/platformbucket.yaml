@@ -1,0 +1,14 @@
+apiVersion: platform.dynatrace.crossplane.io/v1alpha1
+kind: PlatformBucket
+metadata:
+  annotations:
+    meta.upbound.io/example-id: platform/v1alpha1/platformbucket
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    displayName: Custom logs bucket playground
+    name: '#name#'
+    retention: 67
+    table: logs

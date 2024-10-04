@@ -1,0 +1,16 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: HubSubscriptions
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/hubsubscriptions
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    tokenSubscriptions:
+    - tokenSubscription:
+      - description: Description
+        enabled: true
+        name: '#name'
+        token: "123456789012345678901234567890123456"

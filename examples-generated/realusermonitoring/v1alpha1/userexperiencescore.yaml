@@ -1,0 +1,14 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: UserExperienceScore
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/userexperiencescore
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    considerLastAction: false
+    considerRageClick: false
+    maxFrustratedUserActionsThreshold: 20
+    minSatisfiedUserActionsThreshold: 60

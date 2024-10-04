@@ -1,0 +1,13 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: IPAddressMasking
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/ipaddressmasking
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: true
+    scope: APPLICATION-1234567890000000
+    type: public

@@ -1,0 +1,48 @@
+apiVersion: httpmonitors.dynatrace.crossplane.io/v1alpha1
+kind: HTTPMonitorScript
+metadata:
+  annotations:
+    meta.upbound.io/example-id: httpmonitors/v1alpha1/httpmonitorscript
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    httpId: ${dynatrace_http_monitor.monitor.id}
+    script:
+    - request:
+      - configuration:
+        - acceptAnyCertificate: true
+        description: request1
+        method: GET
+        url: http://httpstat.us/200
+      - configuration:
+        - acceptAnyCertificate: true
+        description: request2
+        method: GET
+        url: http://httpstat.us/400
+
+---
+
+apiVersion: httpmonitors.dynatrace.crossplane.io/v1alpha1
+kind: HTTPMonitor
+metadata:
+  annotations:
+    meta.upbound.io/example-id: httpmonitors/v1alpha1/httpmonitorscript
+  labels:
+    testing.upbound.io/example-name: monitor
+  name: monitor
+spec:
+  forProvider:
+    anomalyDetection:
+    - loadingTimeThresholds:
+      - {}
+      outageHandling:
+      - globalOutage: true
+        globalOutagePolicy:
+        - consecutiveRuns: 1
+    frequency: 1
+    locations:
+    - GEOLOCATION-F3E06A526BE3B4C4
+    name: '#name#'
+    noScript: true

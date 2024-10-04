@@ -1,0 +1,41 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebAppCustomErrors
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webappcustomerrors
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    errorRules:
+    - errorRule:
+      - captureSettings:
+        - capture: true
+          considerForAi: true
+          impactApdex: false
+        keyMatcher: EQUALS
+        keyPattern: hashicorp
+        valueMatcher: ALL
+      - captureSettings:
+        - capture: false
+        keyMatcher: CONTAINS
+        keyPattern: TF
+        valueMatcher: ENDS_WITH
+        valuePattern: EX
+      - captureSettings:
+        - capture: true
+          considerForAi: true
+          impactApdex: true
+        keyMatcher: BEGINS_WITH
+        keyPattern: terraform
+        valueMatcher: CONTAINS
+        valuePattern: example
+      - captureSettings:
+        - capture: true
+          considerForAi: false
+          impactApdex: true
+        keyMatcher: ALL
+        valueMatcher: ALL
+    ignoreCustomErrorsInApdexCalculation: true
+    scope: APPLICATION-1234567890000000

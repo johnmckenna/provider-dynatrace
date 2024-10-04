@@ -1,0 +1,18 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogMetrics
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logmetrics
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    dimensions:
+    - dt.os.type
+    - dt.entity.process_group
+    enabled: true
+    key: log.terraformexample3
+    measure: ATTRIBUTE
+    measureAttribute: dt.entity.host
+    query: matchesPhrase(content, "terratest")

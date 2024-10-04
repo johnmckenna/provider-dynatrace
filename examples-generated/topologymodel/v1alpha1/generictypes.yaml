@@ -1,0 +1,30 @@
+apiVersion: topologymodel.dynatrace.crossplane.io/v1alpha1
+kind: GenericTypes
+metadata:
+  annotations:
+    meta.upbound.io/example-id: topologymodel/v1alpha1/generictypes
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    createdBy: Terraform
+    displayName: TerraformTest
+    enabled: true
+    name: terraform:type
+    rules:
+    - rule:
+      - attributes:
+        - attribute:
+          - key: TerraformAttribute
+            pattern: '{TerraformExtraction}'
+        iconPattern: '{TerraformIcon}'
+        idPattern: '{TerraformPlaceholder}'
+        instanceNamePattern: '{TerraformInstance}'
+        requiredDimensions:
+        - requiredDimension:
+          - key: TerraformDimension
+        sources:
+        - source:
+          - condition: $eq(TerraformCondition)
+            sourceType: Events

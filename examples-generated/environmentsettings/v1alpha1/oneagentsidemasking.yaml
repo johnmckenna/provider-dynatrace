@@ -1,0 +1,14 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: OneagentSideMasking
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/oneagentsidemasking
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    isEmailMaskingEnabled: false
+    isFinancialMaskingEnabled: true
+    isNumbersMaskingEnabled: true
+    isQueryMaskingEnabled: false

@@ -1,0 +1,165 @@
+apiVersion: webapplications.dynatrace.crossplane.io/v1alpha1
+kind: WebApplication
+metadata:
+  annotations:
+    meta.upbound.io/example-id: webapplications/v1alpha1/webapplication
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    costControlUserSessionPercentage: 100
+    customActionApdexSettings:
+    - frustratingFallbackThreshold: 12000
+      frustratingThreshold: 12000
+      toleratedFallbackThreshold: 3000
+      toleratedThreshold: 3000
+    loadActionApdexSettings:
+    - frustratingFallbackThreshold: 12000
+      frustratingThreshold: 12000
+      toleratedFallbackThreshold: 3000
+      toleratedThreshold: 3000
+    loadActionKeyPerformanceMetric: VISUALLY_COMPLETE
+    metaDataCaptureSettings:
+    - capture:
+      - capturingName: PTC.navigation.GLOBAL_USER
+        name: VisitTag1
+        type: JAVA_SCRIPT_VARIABLE
+        uniqueId: 1
+      - capturingName: '#infoPageIdentityObjectIdentifier'
+        name: PageIdentity
+        type: CSS_SELECTOR
+        uniqueId: 2
+      - capturingName: gclid
+        name: GCLID - Google Click Identifier
+        type: QUERY_STRING
+        uniqueId: 3
+      - capturingName: RES_SESSIONID
+        name: Session ID
+        type: COOKIE
+        uniqueId: 4
+      - capturingName: RES_TRACKINGID
+        name: Tracking ID
+        type: COOKIE
+        uniqueId: 5
+    monitoringSettings:
+    - addCrossOriginAnonymousAttribute: true
+      advancedJavascriptTagSettings:
+      - additionalEventHandlers:
+        - maxDomNodes: 5000
+        globalEventCaptureSettings:
+        - click: true
+          doubleclick: true
+          keydown: true
+          keyup: true
+          mousedown: true
+          mouseup: true
+          scroll: true
+        maxActionNameLength: 100
+        maxErrorsToCapture: 10
+      cacheControlHeaderOptimizations: true
+      contentCapture:
+      - javascriptErrors: true
+        resourceTimingSettings:
+        - instrumentationDelay: 53
+          nonW3CResourceTimings: true
+          w3cResourceTimings: true
+        timeoutSettings:
+        - temporaryActionLimit: 3
+          temporaryActionTotalTimeout: 100
+          timedActionSupport: true
+        visuallyCompleteAndSpeedIndex: true
+        visuallyCompleteSettings:
+        - inactivityTimeout: 1000
+          mutationTimeout: 50
+          threshold: 50
+      injectionMode: JAVASCRIPT_TAG
+      javascriptFrameworkSupport:
+      - angular: true
+        extjs: true
+        jquery: true
+        prototype: true
+      scriptTagCacheDurationInHours: 1
+    name: '#name#'
+    realUserMonitoringEnabled: true
+    sessionReplayConfig:
+    - costControlPercentage: 100
+      cssResourceCapturingExclusionRules: []
+      enableCssResourceCapturing: true
+      enabled: false
+    type: AUTO_INJECTED
+    userActionAndSessionProperties:
+    - property:
+      - aggregation: LAST
+        displayName: GCLID - Google Click Identifier
+        id: 2
+        key: google_gclid
+        metadataId: 3
+        origin: META_DATA
+        storeAsSessionProperty: true
+        type: STRING
+      - aggregation: LAST
+        displayName: Session ID
+        id: 3
+        key: certona_session_id
+        metadataId: 4
+        origin: META_DATA
+        storeAsSessionProperty: true
+        type: STRING
+      - aggregation: LAST
+        displayName: Tracking ID
+        id: 4
+        key: certona_tracking_id
+        metadataId: 5
+        origin: META_DATA
+        storeAsSessionProperty: true
+        type: STRING
+    userActionNamingSettings:
+    - ignoreCase: true
+      loadActionNamingRules:
+      - rule:
+        - template: Loading of {pageTitle (default)}
+      placeholders:
+      - placeholder:
+        - input: PAGE_URL
+          name: TrailingURL
+          processingPart: ALL
+          processingSteps:
+          - step:
+            - patternAfterSearchType: LAST
+              patternBefore: /Windchill/app/#ptc1
+              patternBeforeSearchType: FIRST
+              type: SUBSTRING
+        - input: METADATA
+          metadataId: 2
+          name: PageIdentity
+          processingPart: ALL
+      queryParameterCleanups:
+      - cfid
+      - phpsessid
+      - __sid
+      - cftoken
+      - sid
+      splitUserActionsByDomain: true
+      useFirstDetectedLoadAction: true
+      xhrActionNamingRules:
+      - rule:
+        - template: '{pageTitle (default)}'
+    userTags:
+    - tag:
+      - id: 1
+        metadataId: 1
+    waterfallSettings:
+    - resourceBrowserCachingThreshold: 50
+      resourcesThreshold: 100000
+      slowCndResourcesThreshold: 200000
+      slowFirstPartyResourcesThreshold: 200000
+      slowThirdPartyResourcesThreshold: 200000
+      speedIndexVisuallyCompleteRatioThreshold: 50
+      uncompressedResourcesThreshold: 860
+    xhrActionApdexSettings:
+    - frustratingFallbackThreshold: 12000
+      frustratingThreshold: 12000
+      toleratedFallbackThreshold: 3000
+      toleratedThreshold: 3000
+    xhrActionKeyPerformanceMetric: VISUALLY_COMPLETE

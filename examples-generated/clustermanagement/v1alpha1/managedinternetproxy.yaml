@@ -1,0 +1,20 @@
+apiVersion: clustermanagement.dynatrace.crossplane.io/v1alpha1
+kind: ManagedInternetProxy
+metadata:
+  annotations:
+    meta.upbound.io/example-id: clustermanagement/v1alpha1/managedinternetproxy
+  labels:
+    testing.upbound.io/example-name: Test
+  name: test
+spec:
+  forProvider:
+    nonProxyHosts:
+    - string
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    port: 65535
+    scheme: http
+    server: zAOE-GV81/65oVgaIlPYTCADGSPFJ9ZqXYNGbxn97dbq:flAI2E8e8bfOvlmaGu
+    user: string

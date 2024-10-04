@@ -1,0 +1,11 @@
+apiVersion: realusermonitoring.dynatrace.crossplane.io/v1alpha1
+kind: RumIPDetermination
+metadata:
+  annotations:
+    meta.upbound.io/example-id: realusermonitoring/v1alpha1/rumipdetermination
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    headerName: X-Header-Example3

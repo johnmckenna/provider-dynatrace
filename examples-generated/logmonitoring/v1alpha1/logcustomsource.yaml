@@ -1,0 +1,26 @@
+apiVersion: logmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: LogCustomSource
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logmonitoring/v1alpha1/logcustomsource
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    customLogSource:
+    - type: WINDOWS_EVENT_LOG
+      valuesAndEnrichment:
+      - customLogSourceWithEnrichment:
+        - enrichment:
+          - enrichment:
+            - key: key1
+              type: attribute
+              value: value1
+            - key: key2
+              type: attribute
+              value: value2
+          path: /terraform
+    enabled: false
+    name: '#name#'
+    scope: HOST_GROUP-1234567890000000

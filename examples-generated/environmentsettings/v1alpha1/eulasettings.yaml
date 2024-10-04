@@ -1,0 +1,12 @@
+apiVersion: environmentsettings.dynatrace.crossplane.io/v1alpha1
+kind: EulaSettings
+metadata:
+  annotations:
+    meta.upbound.io/example-id: environmentsettings/v1alpha1/eulasettings
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enableEula: true
+    scope: environment

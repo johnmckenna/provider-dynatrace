@@ -1,0 +1,15 @@
+apiVersion: processgroupmonitoring.dynatrace.crossplane.io/v1alpha1
+kind: ProcessGroupSimpleDetection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: processgroupmonitoring/v1alpha1/processgroupsimpledetection
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    enabled: false
+    groupIdentifier: GroupIdentifierExample
+    instanceIdentifier: InstanceIdentifierExample
+    processType: PROCESS_TYPE_GO
+    ruleType: prop

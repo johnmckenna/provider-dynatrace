@@ -1,0 +1,33 @@
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: OpsGenieNotification
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/opsgenienotification
+  labels:
+    testing.upbound.io/example-name: '#name#'
+  name: '#name#'
+spec:
+  forProvider:
+    active: false
+    apiKeySecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    domain: '#name#'
+    message: ops-genie-message
+    name: '#name#'
+    profile: ${dynatrace_alerting.Default.id}
+
+---
+
+apiVersion: notifications.dynatrace.crossplane.io/v1alpha1
+kind: Alerting
+metadata:
+  annotations:
+    meta.upbound.io/example-id: notifications/v1alpha1/opsgenienotification
+  labels:
+    testing.upbound.io/example-name: Default
+  name: default
+spec:
+  forProvider:
+    name: '#name#'
